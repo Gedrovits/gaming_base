@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/matthewrudy/oauth2.git
+  revision: 030cf008d6821d475f7de44054cc50dd42597750
+  branch: rack2
+  specs:
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.0, < 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,27 +50,98 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (7.0.0)
+    ast (2.3.0)
+    autoprefixer-rails (6.3.7)
+      execjs
+    awesome_print (1.7.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
+    bcrypt (3.1.11)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
-    coffee-rails (4.2.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.10.0)
+    cancancan (1.15.0)
+    coderay (1.1.1)
     concurrent-ruby (1.0.2)
+    css_parser (1.4.2)
+      addressable
+    daemons (1.2.3)
+    database_rewinder (0.6.2)
     debug_inspector (0.0.2)
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
+    devise-i18n (1.1.0)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    easy_translate (0.5.0)
+      json
+      thread
+      thread_safe
     erubis (2.7.0)
+    eventmachine (1.0.9.1)
     execjs (2.7.0)
+    factory_girl (4.7.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.7.0)
+      factory_girl (~> 4.7.0)
+      railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    fast_blank (1.0.0)
     ffi (1.9.13)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    hamlit (2.5.0)
+      temple (~> 0.7.6)
+      thor
+      tilt
+    hamlit-rails (0.1.0)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      hamlit (>= 1.2.0)
+      railties (>= 4.0.1)
+    hashie (3.4.4)
+    highline (1.7.8)
+    htmlentities (4.3.4)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
-    jbuilder (2.5.0)
-      activesupport (>= 3.0.0, < 5.1)
-      multi_json (~> 1.2)
+    i18n-tasks (0.9.5)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      easy_translate (>= 0.5.0)
+      erubis
+      highline (>= 1.7.3)
+      i18n
+      parser (>= 2.2.3.0)
+      term-ansicolor (>= 1.3.2)
+      terminal-table (>= 1.5.1)
+    json (1.8.3)
+    jwt (1.5.4)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -66,20 +149,75 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mailcatcher (0.2.4)
+      eventmachine
+      haml
+      i18n
+      json
+      mail
+      sinatra
+      skinny (>= 0.1.2)
+      sqlite3-ruby
+      thin
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mina (0.3.8)
+      open4 (~> 1.3.4)
+      rake
+    mina-nginx (0.0.1)
+      mina (~> 0)
+    mina-unicorn (0.4.0)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nio4r (1.2.1)
     nodejs-rails (0.0.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    oauth (0.5.1)
+    oj (2.16.1)
+    oj_mimic_json (1.0.1)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-facebook (3.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.1.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.4.1)
+      jwt (~> 1.5.2)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.3.1)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-twitch (0.2.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-twitter (1.2.1)
+      json (~> 1.3)
+      omniauth-oauth (~> 1.1)
+    open4 (1.3.4)
+    orm_adapter (0.5.0)
+    parser (2.3.1.2)
+      ast (~> 2.2)
     pg (0.18.4)
     pkg-config (1.1.7)
+    premailer (1.8.6)
+      css_parser (>= 1.3.6)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.9.3)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     puma (3.4.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -101,6 +239,9 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.0.beta4)
+      i18n (~> 0.7)
+      railties (~> 5.0.0.beta1)
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -111,6 +252,25 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
+    rspec-core (3.5.1)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     sass (3.4.22)
     sass-rails (5.0.5)
       railties (>= 4.0.0, < 6)
@@ -118,6 +278,23 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-csv (0.1.3)
+      simplecov
+    simplecov-html (0.10.0)
+    sinatra (1.0)
+      rack (>= 1.0)
+    skinny (0.2.4)
+      eventmachine (~> 1.0.0)
+      thin (>= 1.5, < 1.7)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -125,13 +302,30 @@ GEM
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
+    sprockets-es6 (0.9.0)
+      babel-source (>= 5.8.11)
+      babel-transpiler
+      sprockets (>= 3.0.0)
     sprockets-rails (3.1.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.3.11)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
+    temple (0.7.7)
+    term-ansicolor (1.3.2)
+      tins (~> 1.0)
+    terminal-table (1.6.0)
+    thin (1.6.2)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     thor (0.19.1)
+    thread (0.2.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tins (1.10.2)
     turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -139,6 +333,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (3.3.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -152,21 +348,61 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
+  awesome_print
+  better_errors
+  binding_of_caller
+  bootstrap-sass (~> 3.3.6)
   byebug
-  coffee-rails (~> 4.2)
-  jbuilder (~> 2.5)
+  cancancan
+  database_rewinder
+  devise
+  devise-i18n
+  factory_girl_rails (>= 4.6)
+  fast_blank
+  font-awesome-rails
+  friendly_id
+  hamlit-rails
+  http_accept_language
+  i18n-tasks
+  kaminari
   listen (~> 3.0.5)
+  mailcatcher
+  mime-types (~> 3.1)
+  mina
+  mina-nginx
+  mina-unicorn
   nodejs-rails
+  nokogiri (~> 1.6)
+  oauth2!
+  oj
+  oj_mimic_json
+  omniauth-facebook
+  omniauth-github
+  omniauth-google-oauth2
+  omniauth-twitch
+  omniauth-twitter
   pg (~> 0.18)
+  premailer-rails
   puma (~> 3.0)
   rails (~> 5.0.0)
+  rails-i18n
+  rspec-rails (>= 3.5.0.beta4)
   sass-rails (~> 5.0)
+  shoulda-matchers (>= 2.8, < 3)
+  simple_form
+  simplecov
+  simplecov-csv
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-es6
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.12.5
