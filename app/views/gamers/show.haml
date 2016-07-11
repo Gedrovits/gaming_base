@@ -1,0 +1,47 @@
+=# @gamer.inspect
+
+%h1
+  = @gamer.to_label
+  = verified_badge(@gamer.verified, false)
+  - if @gamer.id == current_gamer.id
+    %small
+      .pull-right= link_to fa_icon('cogs'), edit_gamer_path(@gamer)
+
+.row
+  .col-md-4
+    %h3 About
+    %table.table
+      %colgroup
+        %col{ style: 'width: 30%' }
+        %col{ style: 'width: 70%' }
+      %tbody
+        %tr
+          %th Dedication
+          %td= dedication_label(@gamer.dedication)
+        %tr
+          %th Weekday Availability
+          %td= weekday_weekend_availability_label(@gamer.weekday_availability)
+        %tr
+          %th Weekend Availability
+          %td= weekday_weekend_availability_label(@gamer.weekend_availability)
+        %tr
+          %th Swearing
+          %td= swearing_and_tolerance_label(@gamer.swearing)
+        %tr
+          %th Swearing Tolerance
+          %td= swearing_and_tolerance_label(@gamer.swearing_tolerance)    
+        %tr
+          %th Privacy
+          %td= privacy_label(@gamer.privacy)
+        %tr
+          %th Age
+          %td= @gamer.age
+        %tr
+          %th Sex
+          %td= sex_label(@gamer.sex)
+  .col-md-4
+    %h3 Teams
+    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_teams }
+  .col-md-4
+    %h3 Communities
+    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_communities }

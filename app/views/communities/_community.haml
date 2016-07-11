@@ -1,0 +1,12 @@
+%tr
+  %td= community.name
+  %td= community.abbreviation
+  %td= community.description
+  %td= safe_external_link(community.website)
+  %td= verified_badge(community.verified?)
+  %td= community.active
+  %td= community.privacy
+  %td= community.created_at
+  %td= community.updated_at
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: community }

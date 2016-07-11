@@ -1,0 +1,26 @@
+.page-header
+  %h1
+    Communities
+    .pull-right
+      = link_to 'New', new_community_path, class: 'btn btn-primary'
+%form.form-inline
+  .form-group
+    %label.sr-only{:for => "name"} Name
+    %input#name.form-control{:placeholder => "Enter name...", :type => "text", name: 'name'}/
+  %button.btn.btn-primary{:type => "submit"} Search
+  = link_to 'Clear', communities_path, class: 'btn btn-secondary'
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Abbreviation
+      %th Description
+      %th Website
+      %th Verified
+      %th Active
+      %th Privacy
+      %th Created at
+      %th Updated at
+      %th
+  %tbody
+    = render @communities

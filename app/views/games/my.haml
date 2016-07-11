@@ -1,0 +1,20 @@
+%h1 My Games
+.row
+  - @my_games.each do |game|
+    .col-md-3
+      = game.to_label
+  - @games.each do |game|
+    .col-md-4
+      .card.text-xs-center
+        .card-header
+          = game.abbreviation
+        .card-block
+          %h4.card-title= game.name
+          -#%p.card-text With supporting text below as a natural lead-in to additional content.
+          .btn-group
+            %a.btn.btn-primary{ href: '#' }= fa_icon('check', text: 'Playing')
+            %a.btn.btn-secondary{ href: '#' }= fa_icon('search', text: 'Search')
+            %a.btn.btn-secondary{ href: game_path(game) }= fa_icon('question', text: 'Info')
+              -#.card-footer.text-muted
+              -#  2 days ago
+    

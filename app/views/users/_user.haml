@@ -1,0 +1,9 @@
+%tr
+  %td= user.email
+  %td= yes_or_no(user.active)
+  %td= user.is_core
+  %th= user.locale
+  %th= user.time_zone
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: user }
+    = link_to 'Become', become_user_path(user.id), class: 'btn btn-inverse'

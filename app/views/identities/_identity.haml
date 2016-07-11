@@ -1,0 +1,8 @@
+%tr
+  %td= identity.user_id
+  %td= identity.uid
+  %td= identity.provider
+  %td= identity.created_at
+  %td= identity.updated_at
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: identity }

@@ -1,0 +1,10 @@
+%tr
+  %td= team.name
+  %td= team.description
+  %td= yes_or_no(team.active)
+  %td= team.privacy
+  %td= team.status
+  %td= team.memberships.count
+  %td= team.games.count
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: team }

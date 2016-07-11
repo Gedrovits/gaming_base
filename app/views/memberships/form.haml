@@ -1,0 +1,10 @@
+= simple_form_for @membership do |f|
+  = f.association :community
+  = f.association :team
+  = f.association :gamer
+  = f.association :role, include_blank: false
+  = f.input :type, collection: Membership.types.keys.to_a, include_blank: false
+  = f.input :active
+  = f.input :privacy, collection: Membership.privacies.keys.to_a, include_blank: false
+  = f.input :status, collection: Membership.statuses.keys.to_a, include_blank: false
+  = f.submit

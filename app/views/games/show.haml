@@ -1,0 +1,22 @@
+= @game.inspect
+
+%ul.nav.nav-tabs{ role: 'tablist' }
+  %li.nav-item
+    %a.nav-link.active{ href: '#gamers', role: 'tab', data: { toggle: 'tab' } } gamers
+  %li.nav-item
+    %a.nav-link{ href: '#teams', role: 'tab', data: { toggle: 'tab' } } Teams
+  %li.nav-item
+    %a.nav-link{ href: '#communities', role: 'tab', data: { toggle: 'tab' } } Communities
+.tab-content
+  #gamers.tab-pane.active{ role: 'tabpanel' }
+    %table.table
+      %tbody
+        = render @game.gamers
+  #teams.tab-pane.active{ role: 'tabpanel' }
+    %table.table
+      %tbody
+        = render @game.teams
+  #communities.tab-pane.active{ role: 'tabpanel' }
+    %table.table
+      %tbody
+        = render @game.communities

@@ -1,0 +1,8 @@
+%tr
+  %td= game.name
+  %td= game.abbreviation
+  %td= game.active
+  %td= game.created_at
+  %td= game.updated_at
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: game }

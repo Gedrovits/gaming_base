@@ -1,0 +1,14 @@
+%br
+- if current_membership
+  - case current_membership.status
+    - when :pending, :approved
+      = link_to 'Leave', leave_community_path(@community), class: 'btn btn-danger'
+    - when :left
+      = link_to 'Re-join', join_community_path(@community), class: 'btn btn-success'
+    - when :banned
+      .alert.alert-warning You've been banned and can't join this community.
+  -# Only man in community
+  - if @community.memberships.count == 1
+    = link_to fa_icon('remove', text: 'Disband'), community_path(@community), class: 'btn btn-danger', method: :delete
+- else
+  = link_to 'Join', join_community_path(@community), class: 'btn btn-success'

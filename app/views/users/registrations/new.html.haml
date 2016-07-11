@@ -1,0 +1,40 @@
+.row
+  .col-xs-12.col-md-6
+    .panel
+      .panel-heading
+        %h3.panel-title Register with email
+      .panel-body
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.input :email, required: true, autofocus: true
+          = f.input :password, required: true
+          = f.input :password_confirmation, required: true
+          = f.button :submit, "Register", class: 'btn btn-primary btn-block'
+  .col-xs-12.col-md-6
+    .panel
+      .panel-heading
+        %h3.panel-title Register with service
+      .panel-body
+        .hidden-md.hidden-lg
+          = link_to omniauth_authorize_path(resource_name, :twitch), class: 'btn btn-social-icon btn-twitch' do
+            = fa_icon('twitch')
+          = link_to omniauth_authorize_path(resource_name, :facebook), class: 'btn btn-social-icon btn-facebook' do
+            = fa_icon('facebook')
+          = link_to omniauth_authorize_path(resource_name, :twitter), class: 'btn btn-social-icon btn-twitter' do
+            = fa_icon('twitter')
+          = link_to omniauth_authorize_path(resource_name, :google_oauth2), class: 'btn btn-social-icon btn-google' do
+            = fa_icon('google-plus')
+          = link_to omniauth_authorize_path(resource_name, :github), class: 'btn btn-social-icon btn-github' do
+            = fa_icon('github')
+        .hidden-xs.hidden-sm
+          = link_to omniauth_authorize_path(resource_name, :twitch), class: 'btn btn-block btn-social btn-twitch' do
+            = fa_icon('twitch', text: t('sign_up_with', provider: 'Twitch'))
+          = link_to omniauth_authorize_path(resource_name, :facebook), class: 'btn btn-block btn-social btn-facebook' do
+            = fa_icon('facebook', text: t('sign_up_with', provider: 'Facebook'))
+          = link_to omniauth_authorize_path(resource_name, :twitter), class: 'btn btn-block btn-social btn-twitter' do
+            = fa_icon('twitter', text: t('sign_up_with', provider: 'Twitter'))
+          = link_to omniauth_authorize_path(resource_name, :google_oauth2), class: 'btn btn-block btn-social btn-google' do
+            = fa_icon('google-plus', text: t('sign_up_with', provider: 'Google'))
+          = link_to omniauth_authorize_path(resource_name, :github), class: 'btn btn-block btn-social btn-github' do
+            = fa_icon('github', text: t('sign_up_with', provider: 'GitHub'))
+  .col-xs-12.col-md-12
+    = render partial: 'users/shared/links'

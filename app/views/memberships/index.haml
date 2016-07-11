@@ -1,0 +1,20 @@
+.page-header
+  %h1
+    Memberships
+    .pull-right
+      = link_to 'New', new_membership_path, class: 'btn btn-primary'
+%table.table
+  %thead
+    %tr
+      %th Community
+      %th Team
+      %th Gamer
+      %th Role
+      %th Membership Type
+      %th Active
+      %th Privacy
+      %th Status
+      %th Created at
+      %th Updated at
+  %tbody
+    = render @memberships

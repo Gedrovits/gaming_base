@@ -1,0 +1,8 @@
+%h1 User
+= simple_form_for @user do |f|
+  = f.input :active
+  = f.input :is_core
+  = f.input :locale, collection: [:en, :ru]
+  = f.input :time_zone
+
+  = f.submit

@@ -1,0 +1,35 @@
+%h1 Search for fellow gamer!
+
+= simple_form_for @filters, as: :filters, url: search_results_gamers_path do |f|
+  #filters
+    .row
+      .col-md-4
+        %fieldset
+          %legend Games
+          = f.input :games, collection: Game.all, as: :check_boxes, checked: @filters.games
+      .col-md-4
+        %fieldset
+          %legend Personal
+          -# TODO: Can be just age as range
+          = f.input :min_age
+          = f.input :max_age
+          = f.input :sex, collection: Gamer.sexes.keys.to_a, as: :check_boxes
+      .col-md-4
+        %fieldset
+          %legend Profanity / Swearing
+          = f.input :swearing_tolerance, collection: Gamer.swearing_tolerances.keys.to_a, as: :radio_buttons
+  #actions
+    .row
+      .col-md-4
+        = f.submit "Let's roll!", class: 'btn btn-primary'
+        = link_to 'Clear filters', search_gamers_path, class: 'btn btn-secondary'
+  #results
+    %h3 Gamers found:
+    - if @gamers.blank?
+      Nothing found.
+    - else
+      = paginate @gamers
+      %table.table
+        %tbody
+          = render @gamers
+      = paginate @gamers

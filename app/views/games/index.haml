@@ -1,0 +1,21 @@
+.page-header
+  %h1
+    Games
+    .pull-right
+      = link_to 'New', new_game_path, class: 'btn btn-primary'
+%form.form-inline
+  .form-group
+    %label.sr-only{:for => "name"} Name
+    %input#name.form-control{:placeholder => "Enter name...", :type => "text", name: 'name'}/
+  %button.btn.btn-primary{:type => "submit"} Search
+  = link_to 'Clear', games_path, class: 'btn btn-secondary'
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Abbreviation
+      %th Active
+      %th Created at
+      %th Updated at
+  %tbody
+    = render @games

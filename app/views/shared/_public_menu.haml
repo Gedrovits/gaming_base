@@ -1,0 +1,6 @@
+- if Rails.env.development?
+  %ul.nav.navbar-nav.pull-right
+    %li.nav-item
+      = link_to 'Register', new_user_registration_path, class: 'btn btn-primary-outline'
+    %li.nav-item
+      = link_to fa_icon('sign-in', text: 'Sign In'), new_user_session_path, class: 'btn btn-secondary-outline'

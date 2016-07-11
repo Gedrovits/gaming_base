@@ -1,0 +1,13 @@
+%tr
+  %td= link_to(membership.community&.to_label, membership.community) if membership.community
+  %td= link_to(membership.team&.to_label, membership.team) if membership.team
+  %td= link_to(membership.gamer&.to_label, membership.gamer) if membership.gamer
+  %td= link_to(membership.role&.to_label, membership.role) if membership.role
+  %td= membership.type
+  %td= membership.active
+  %td= membership.privacy
+  %td= membership_status_label(membership)
+  %td= membership.created_at
+  %td= membership.updated_at
+  %td
+    = render partial: 'shared/crud_actions', locals: { model: membership }

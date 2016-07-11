@@ -1,0 +1,68 @@
+%h1
+  = @team.to_label
+  %small= verified_badge(@team.verified?, false)
+
+%ul.nav.nav-tabs{ role: 'tablist' }
+  %li.active
+    %a{ href: '#gamers', role: 'tab', data: { toggle: 'tab' } } Gamers
+  %li
+    %a{ href: '#communities', role: 'tab', data: { toggle: 'tab' } } Communities
+  %li
+    %a{ href: '#games', role: 'tab', data: { toggle: 'tab' } } Games  
+.tab-content
+  #gamers.tab-pane.active{ role: 'tabpanel' }
+    - gamer_memberships = @team.memberships.for_gamers
+    - if gamer_memberships.blank?
+      %h4 No memberships...
+    - else
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Name
+            %th Role
+            %th Status
+            %th
+        %tbody
+          - @team.memberships.for_gamers.order(:role_id).each do |m|
+            %tr
+              %td= m.gamer.username
+              %td
+                = m.role.to_label
+                - if current_membership&.role&.name == 'Founder'
+                  .btn-group
+                    %button.btn.btn-default.dropdown-toggle{ data: { toggle: 'dropdown' } }
+                      = fa_icon('edit', text: 'Change')
+                      %span.caret
+                    %ul.dropdown-menu
+                      - Role.all.each do |role|
+                        - next if role.id == m.role_id
+                        %li= link_to role.to_label, change_role_membership_path(m, role_id: role.id), class: 'dropdown-item' 
+              %td= membership_status_label(m)
+              %td
+                - if current_membership&.role&.name == 'Founder'
+                  = render 'memberships/manage', membership: m
+                - if current_user.is_core?  
+                  = render partial: 'shared/crud_actions', locals: { model: m.gamer }
+  #communities.tab-pane{ role: 'tabpanel' }
+    - community_memberships = @team.memberships.for_communities
+    - if community_memberships.blank?
+      %h4 No memberships...
+    - else
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Name
+            %th Role
+            %th
+        %tbody
+          - community_memberships.each do |m|
+            %tr
+              %td= m.community.to_label
+              %td= m.role&.to_label
+              %td= render partial: 'shared/crud_actions', locals: { model: m.community }
+  #games.tab-pane{ role: 'tabpanel' }
+    %table.table
+      %tbody
+        = render @team.games
+%hr
+= render partial: 'current_membership'

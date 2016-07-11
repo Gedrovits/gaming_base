@@ -1,0 +1,23 @@
+.page-header
+  %h1
+    Teams
+    .pull-right
+      = link_to 'New', new_team_path, class: 'btn btn-primary'
+%form.form-inline
+  .form-group
+    %label.sr-only{:for => "name"} Name
+    %input#name.form-control{:placeholder => "Enter name...", :type => "text", name: 'name'}/
+  %button.btn.btn-primary{:type => "submit"} Search
+  = link_to 'Clear', teams_path, class: 'btn btn-secondary'      
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Active
+      %th Privacy
+      %th Status
+      %th Members
+      %th Games
+  %tbody
+    = render @teams

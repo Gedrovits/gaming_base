@@ -1,0 +1,17 @@
+!!! 5
+%html(lang='en')
+  %head
+    %meta(charset='utf-8')
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
+    %meta(http-equiv='x-ua-compatible' content='id=edge')
+    %link(rel="author" href="humans.txt")
+    %title Gaming Base
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'shared/main_menu'
+    .container
+      = bootstrap_flash
+      = yield

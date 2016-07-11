@@ -1,0 +1,23 @@
+%h1 Home
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title Team
+      .panel-body
+        %span.text-muted Perfect for middle-sized group of players
+      = render partial: 'memberships/summary_table', locals: { memberships: current_gamer.memberships.for_teams }
+      .panel-footer
+        = link_to fa_icon('search', text: 'Find'), teams_path
+        = link_to fa_icon('star', text: 'Create'), new_team_path
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title Community
+      .panel-body
+        %span.text-muted Multi-gaming and professional organizations
+      = render partial: 'memberships/summary_table', locals: { memberships: current_gamer.memberships.for_communities }
+      .panel-footer
+        = link_to fa_icon('search', text: 'Find'), communities_path
+        = link_to fa_icon('star', text: 'Create'), new_community_path

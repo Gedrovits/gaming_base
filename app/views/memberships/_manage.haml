@@ -1,0 +1,10 @@
+- m = membership
+.btn-group
+  - case m.status
+    - when :pending
+      = link_to fa_icon('thumbs-o-up', text: 'Approve'), approve_membership_path(m), class: 'btn btn-success'
+      = link_to fa_icon('thumbs-o-down', text: 'Decline'), decline_membership_path(m), class: 'btn btn-danger'
+    - when :banned
+      = link_to fa_icon('unlock', text: 'Unban'), unban_membership_path(m), class: 'btn btn-success'
+- unless m.status == :banned
+  = link_to fa_icon('gavel', text: 'Ban'), ban_membership_path(m), class: 'btn btn-danger'

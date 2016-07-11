@@ -1,0 +1,19 @@
+%ul.nav.navbar-nav
+  %li.nav-item
+    = link_to fa_icon('home', text: t('main_menu.home')), user_root_path, class: 'nav-link'
+  %li.nav-item
+    = link_to fa_icon('search', text: t('main_menu.search')), search_gamers_path, class: 'nav-link'
+  %li.nav-item
+    = link_to gamer_teams_path(current_gamer), class: 'nav-link' do
+      = fa_icon('cube', text: t('main_menu.teams'))
+      %span.label.label-pill.label-default= current_user.teams.count
+  %li.nav-item
+    = link_to gamer_communities_path(current_gamer), class: 'nav-link' do
+      = fa_icon('cubes', text: t('main_menu.communities'))
+      %span.label.label-pill.label-default= current_user.communities.count
+%ul.nav.navbar-nav.pull-right
+  %li.nav-item= link_to current_gamer.to_label, user_gamer_path, class: 'nav-link'
+  %li.nav-item= link_to fa_icon('cogs'), edit_user_path(current_user), class: 'nav-link'
+  - if session[:became_user] && session[:superuser_id]
+    %li.nav-item= link_to 'Become self', become_self_path, class: 'btn btn-secondary-outline'
+  %li.nav-item= link_to fa_icon('sign-out', text: 'Sign out'), destroy_user_session_path, class: 'nav-link', method: :delete
