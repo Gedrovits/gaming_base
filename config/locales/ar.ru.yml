@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      community:
+        one: Сообщество
+        other: Сообщества
+      game:
+        one: Игра
+        other: Игры
+      profile:
+        one: Профиль
+        other: Профили
+      team:
+        one: Команда
+        other: Команды
+      user:
+        one: Пользователь
+        other: Пользователи

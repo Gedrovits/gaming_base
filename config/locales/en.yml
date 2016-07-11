@@ -20,4 +20,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  sign_in_with: "Sign in with %{provider}"
+  sign_up_with: "Sign up with %{provider}"

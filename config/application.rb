@@ -21,5 +21,16 @@ module GamingBase
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+  
+    config.time_zone = 'UTC'.freeze
+
+    config.i18n.default_locale = :en
+
+    # Generate only what required
+    config.generators do |g|
+      g.helper = false
+      g.assets = false
+      g.test_framework = false # FIXME: Revert when testing is required
+    end
   end
 end

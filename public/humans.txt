@@ -1,0 +1,16 @@
+Proudly developed by Gaming Base team using the Humane Development.
+
+/* TEAM */
+
+  Location: Tallinn, Estonia
+
+/* THANKS */
+
+  Name: Humane Development
+  Site: http://humanedevelopment.org/
+
+/* SITE */
+
+  Standards: HTML5, CSS3
+  Components: Bootstrap 3, Font Awesome 4
+  Software: Ruby on Rails 5, Nginx, PostgreSQL

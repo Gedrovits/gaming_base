@@ -1,0 +1,26 @@
+image: "ruby:2.3"
+
+services:
+  - "postgres:latest"
+
+stages:
+  - "test"
+
+before_script:
+  - "ruby -v"
+  - "which ruby"
+  - "apt-get update -qq"
+  - "apt-get install -y -qq nodejs"
+  - "gem install bundler --no-ri --no-rdoc"
+  - "bundle install --jobs $(nproc) --path=/cache/bundler"
+  - "cp config/database.gitlab-ci.yml config/database.yml"
+  - "RAILS_ENV=test bin/rails db:create db:test:prepare"
+  - "touch log/test.log"
+
+rspec:
+  stage: "test"
+  script:
+    - "RAILS_ENV=test bin/rspec"
+  tags:
+      - "ruby"
+      - "postgres"
