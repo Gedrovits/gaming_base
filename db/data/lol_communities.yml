@@ -1,0 +1,144 @@
+-
+  community: ['Cloud9', 'C9']
+  members:
+    - ['Balls', 'An', 'Le']
+    - ['Hai', 'Hai', 'Lam']
+    - ['Incarnati0n', 'Nicolaj', 'Jensen']
+    - ['Sneaky', 'Zachary', 'Scuderi']
+    - ['LemonNation', 'Daerek', 'Hart']
+    - ['Hard', 'Anthony', 'Barkhovtsev']
+-
+  community: ['Counter Logic Gaming', 'CLG']
+  members:
+    - ['ZionSpartan', 'Darshan', 'Upadhyaya']
+    - ['Xmithie', 'Jake', 'Puchero']
+    - ['Pobelter', 'Eugene', 'Park']
+    - ['Doublelift', 'Yiliang', 'Peng']
+    - ['aphromoo', 'Zaqueri', 'Black']
+    - ['HuHi', 'Jae-hyun', 'Choi']
+-
+  community: ['Team SoloMid', 'TSM']
+  members:
+    - ['Dyrus', 'Marcus', 'Hill']
+    - ['Santorin', 'Lucas', 'Larsen']
+    - ['Bjergsen', 'Søren', 'Bjerg']
+    - ['WildTurtle', 'Jason', 'Tran']
+    - ['Lustboy', 'Jang-sik', 'Ham']
+    - ['Reginald', 'Andy', 'Dinh']
+-
+  community: ['H2K', 'H2K']
+  members:
+    - ['Odoamne', 'Andrei', 'Pascu']
+    - ['Loulex', 'Jean', 'Burgevin']
+    - ['Ryu', 'Sang-wook', 'Yoo']
+    - ['Hjarnan', 'Petter', 'Freyschuss']
+    - ['kaSing', 'Raymond', 'Tsang']
+    - ['BetongJocke', 'Joachim', 'Rasmussen']
+-
+  community: ['Invictus Gaming', 'IG']
+  members:
+    - ['Zz1tai', 'Liu', 'Zhihao']
+    - ['KAKAO', 'Byung-kwon', 'Lee']
+    - ['Rookie', 'Eui-jin', 'Song']
+    - ['Time', 'Jingtai', 'Tang']
+    - ['Kitties', 'Liu', 'Hongjun']
+    - ['Kid', 'Ge', 'Yan']
+-
+  community: ['LGD Gaming', 'LGD']
+  members:
+    - ['Flame', 'Ho-jong', 'Lee']
+    - ['TBQ', 'Zhu', 'Yongquan']
+    - ['GODV', 'Zhen', 'Wei']
+    - ['imp', 'Seung-bin', 'Gu']
+    - ['Pyl', 'Chen', 'Bo']
+    - ['Acorn', 'Cheon-ju', 'Choi']
+-
+  community: ['Bangkok Titans', 'BKT']
+  members:
+    - ['WarL0cK', 'Pawat', 'Ampaporn']
+    - ['007x', 'Chayut', 'Suebka']
+    - ['G4', 'Nuttapong', 'Menkasikan']
+    - ['Lloyd', 'Juckkirsts', 'Kongubon']
+    - ['Moss', 'Sorawat', 'Boonphrom']
+    - ['QaiZer', 'Nuttapong', 'Dechtanon']
+-
+  community: ['paiN Gaming', 'PNG']
+  members:
+    - ['Mylon', 'Matheus', 'Borges']
+    - ['SirT', 'Thúlio', 'Carlos']
+    - ['Kami', 'Gabriel', 'Santos']
+    - ['brTT', 'Felipe', 'Padioleau']
+    - ['Dioud', 'Hugo', 'Padioleau']
+    - ['PAADA', 'Arthur', 'Zarzur']
+-
+  community: ['Flash Wolves', 'FW']
+  members:
+    - ['Steak', 'Lu-Hsi', 'Chou']
+    - ['Karsa', 'Hao-Xuan', 'Hong']
+    - ['Maple', 'Yi-Tang', 'Huang']
+    - ['NL', 'Wen-An', 'Hsiung']
+    - ['SwordArt', 'Shuo-Chieh', 'Hu']
+    - ['Kkramer', 'Jong-hoon', 'Ha']
+-
+  community: ['Origen', 'OG']
+  members:
+    - ['SoaZ', 'Paul', 'Boyer', 'Top']
+    - ['Amazing', 'Maurice', 'Stückenschneider', 'Jungle']
+    - ['xPeke', 'Enrique', 'Cedeño Martínez', 'Mid']
+    - ['Niels', 'Jesper', 'Svenningsen', 'ADC']
+    - ['Mithy', 'Alfonso', 'Aguirre Rodriguez', 'Support']
+    - ['Araneae', 'Alvar', 'Martin Aleñar', 'Jungle']
+-
+  community: ['SKTelecom T1', 'SKT']
+  members:
+    - ['MaRin', 'Gyeong-hwan', 'Jang', 'Top']
+    - ['Bengi', 'Seong-ung', 'Bae', 'Jungle']
+    - ['Faker', 'Sang-hyeok', 'Lee', 'Mid']
+    - ['Bang', 'Jun-sik', 'Bae', 'ADC']
+    - ['Wolf', 'Jae-wan', 'Lee', 'Support']
+    - ['Easyhoon', 'Ji-hoon', 'Lee', 'Mid']
+-
+  community: ['ahq e-Sports Club', 'AHQ']
+  members:
+    - ['Ziv', 'Yi', 'Chen', 'Top']
+    - ['Mountain', 'Zhao-Hong', 'Xue', 'Jungle']
+    - ['Westdoor', 'Shu-Wei', 'Liu', 'Mid']
+    - ['AN', 'Chun An', 'Chou', 'ADC']
+    - ['Albis', 'Chia-Wei', 'Kang', 'Support']
+    - ['GreenTea', 'Shang-Ching', 'Tsai', 'Support']
+-
+  community: ['Fnatic', 'FNC']
+  members:
+    - ['Huni', 'Seung-hoon', 'Heo', 'Top']
+    - ['Reignover', 'Yeu-jin', 'Kim', 'Jungle']
+    - ['Febiven', 'Fabian', 'Diepstraten', 'Mid']
+    - ['Rekkles', 'Martin', 'Larsson', 'ADC']
+    - ['YellOwStaR', 'Bora', 'Kim', 'Support']
+    - ['Kektz', 'Bor', 'Jeršan', 'Top']
+-
+  community: ['Edward Gaming', 'EDG']
+  members:
+    - ['Koro1', 'Tong', 'Yang', 'Top']
+    - ['Clearlove', 'Ming', 'Kai', 'Jungle']
+    - ['PawN', 'Won-seok', 'Heo', 'Mid']
+    - ['Deft', 'Hyuk-kyu', 'Kim', 'ADC']
+    - ['Meiko', 'Tian', 'Ye', 'Support']
+    - ['AmazingJ', 'Waiho', 'Shek', 'Top']
+-
+  community: ['KT Rolster', 'KT']
+  members:
+    - ['Ssumday', 'Chan-ho', 'Kim', 'Top']
+    - ['Score', 'Dong-bin', 'Go', 'Jungle']
+    - ['Nagne', 'Sang-moon', 'Kim', 'Mid']
+    - ['Arrow', 'Dong-hyeon', 'No', 'ADC']
+    - ['Piccaboo', 'Jong-beom', 'Lee', 'Support']
+    - ['Fixer', 'Jae-woo', 'Jeong', 'Support']
+-
+  community: ['KOO Tigers', 'KOO']
+  members:
+    - ['Smeb', 'Kyung-ho', 'Song', 'Top']
+    - ['Hojin', 'Ho-jin', 'Lee', 'Jungle']
+    - ['KurO', 'Seo-haeng', 'Lee', 'Mid']
+    - ['PraY', 'Jong-in', 'Kim', 'ADC']
+    - ['GorillA', 'Beom-hyeon', 'Kang', 'Support']
+    - ['Wisdom', 'Tae-wan', 'Kim', 'Jungle']
