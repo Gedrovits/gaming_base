@@ -32,9 +32,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use nodejs as the JavaScript library
-gem 'nodejs-rails'
-# gem 'jquery-rails'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 gem 'sprockets-es6'
 gem 'autoprefixer-rails'
 
