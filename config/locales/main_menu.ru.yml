@@ -1,6 +1,5 @@
 ru:
   main_menu:
-    home: 'Домой'
-    search: 'Поиск'
+    gamers: 'Геймеры'
     teams: 'Команды'
     communities: 'Сообщества'

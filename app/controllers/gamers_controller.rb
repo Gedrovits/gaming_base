@@ -30,6 +30,15 @@ class GamersController < ApplicationController
     @teams       = current_gamer.teams
   end
   
+  def lets_play
+  end
+  
+  def organize
+  end
+  
+  def explore
+  end
+  
   # GET /gamer
   def gamer
     @gamer = current_user.gamer

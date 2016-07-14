@@ -1,18 +1,23 @@
 %ul.nav.navbar-nav
-  %li.nav-item
-    = link_to fa_icon('home', text: t('main_menu.home')), user_root_path, class: 'nav-link'
-  %li.nav-item
-    = link_to fa_icon('search', text: t('main_menu.search')), search_gamers_path, class: 'nav-link'
-  %li.nav-item
-    = link_to gamer_teams_path(current_gamer), class: 'nav-link' do
-      = fa_icon('cube', text: t('main_menu.teams'))
-      %span.label.label-pill.label-default= current_user.teams.count
-  %li.nav-item
-    = link_to gamer_communities_path(current_gamer), class: 'nav-link' do
-      = fa_icon('cubes', text: t('main_menu.communities'))
-      %span.label.label-pill.label-default= current_user.communities.count
+  %form.navbar-form.navbar-left
+    .form-group
+      %input.form-control{ type: 'text', placeholder: 'Search...' }
+  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'lets_play' ? "active" : '' }
+    = link_to fa_icon('star', text: "Let's play!"), lets_play_path, class: 'nav-link'
+  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'organize' ? "active" : '' }
+    = link_to fa_icon('calendar', text: 'Organize'), organize_path, class: 'nav-link'
+  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'explore' ? "active" : '' }
+    = link_to fa_icon('magic', text: 'Explore'), explore_path, class: 'nav-link'
+  -#%li.dropdown
+  -#  %a.dropdown-toggle{ href: "#", 'data-toggle' => "dropdown" }
+  -#    = fa_icon('magic', text: 'Explore')
+  -#    %span.caret
+  -#  %ul.dropdown-menu
+  -#    %li= link_to fa_icon('gamepad', text: t('main_menu.gamers')), gamers_path
+  -#    %li= link_to fa_icon('cube', text: t('main_menu.teams')), teams_path
+  -#    %li= link_to fa_icon('cubes', text: t('main_menu.communities')), communities_path
 %ul.nav.navbar-nav.pull-right
-  %li.nav-item= link_to current_gamer.to_label, user_gamer_path, class: 'nav-link'
+  %li.nav-item= link_to current_gamer.username, user_gamer_path, class: 'nav-link'
   %li.nav-item= link_to fa_icon('cogs'), edit_user_path(current_user), class: 'nav-link'
   - if session[:became_user] && session[:superuser_id]
     %li.nav-item= link_to 'Become self', become_self_path, class: 'btn btn-secondary-outline'

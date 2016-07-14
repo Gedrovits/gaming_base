@@ -1,3 +1,8 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li= link_to "Explore", explore_path
+  %li.active Teams
+
 .page-header
   %h1
     Teams
@@ -8,7 +13,7 @@
     %label.sr-only{:for => "name"} Name
     %input#name.form-control{:placeholder => "Enter name...", :type => "text", name: 'name'}/
   %button.btn.btn-primary{:type => "submit"} Search
-  = link_to 'Clear', teams_path, class: 'btn btn-secondary'      
+  = link_to 'Clear', teams_path, class: 'btn btn-secondary'
 %table.table
   %thead
     %tr

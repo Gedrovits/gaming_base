@@ -1,0 +1,25 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li.active Explore
+
+%h1= fa_icon('magic', text: 'Explore')
+
+.row
+  .col-md-4
+    %h2= fa_icon('gamepad', text: 'Gamers')
+    %ul.list-group
+      - Gamer.limit(3).all.each do |m|
+        %li.list-group-item= m.to_label
+      %li.list-group-item.list-group-item-info= link_to "More...", gamers_path
+  .col-md-4
+    %h2= fa_icon('cube', text: 'Teams')
+    %ul.list-group
+      - Team.limit(3).all.each do |m|
+        %li.list-group-item= m.to_label
+      %li.list-group-item.list-group-item-info= link_to "More...", teams_path
+  .col-md-4
+    %h2= fa_icon('cubes', text: 'Communities')
+    %ul.list-group
+      - Community.limit(3).all.each do |m|
+        %li.list-group-item= m.to_label
+      %li.list-group-item.list-group-item-info= link_to "More...", communities_path

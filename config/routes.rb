@@ -59,6 +59,11 @@ Rails.application.routes.draw do
     post '/update_gamer', to: 'gamers#update_gamer', as: :user_update_gamer
     get '/my_games', to: 'users#games', as: :user_games
     
+    # FIXME: Play with simplified UI
+    get 'lets-play', to: 'gamers#lets_play'
+    get 'organize', to: 'gamers#organize'
+    get 'explore', to: 'gamers#explore'
+    
     # TODO: Move static pages outside authenticated block
     # Static pages
     get '/about', to: 'pages#about'

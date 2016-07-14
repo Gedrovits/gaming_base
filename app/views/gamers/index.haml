@@ -1,3 +1,16 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li= link_to "Explore", explore_path
+  %li.active Gamers
+
+.page-header
+  %h1 Gamers
+%form.form-inline
+  .form-group
+    %label.sr-only{:for => "name"} Name
+    %input#name.form-control{:placeholder => "Enter name...", :type => "text", name: 'name'}/
+  %button.btn.btn-primary{:type => "submit"} Search
+  = link_to 'Clear', gamers_path, class: 'btn btn-secondary'
 %table.table
   %thead
     %tr
