@@ -15,4 +15,34 @@ class Role < ApplicationRecord
   def to_label
     name
   end
+  
+  # Shortcut methods to load specific roles
+  
+  def self.founder
+    find_by(abbreviation: 'FNDR')
+  end
+  
+  def self.leader
+    find_by(abbreviation: 'LDR')
+  end
+  
+  def self.second_in_command
+    find_by(abbreviation: '2IC')
+  end
+  
+  def self.manager
+    find_by(abbreviation: 'MNGR')
+  end
+  
+  def self.member
+    find_by(abbreviation: 'MMBR')
+  end
+  
+  def self.newbie
+    find_by(abbreviation: 'NWB')
+  end
+  
+  def self.friend
+    find_by(abbreviation: 'FRND')
+  end
 end
