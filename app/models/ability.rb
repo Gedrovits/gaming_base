@@ -30,32 +30,39 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   
     alias_action :create, :read, :update, :destroy, :to => :crud
-  
+    
+    #= Load some required variables
     gamer = user.gamer
+    team_ids = gamer.team_ids
+    community_ids = gamer.community_ids
+    membership_ids = gamer.membership_ids
   
-    # Authorizations
+    #= Authorizations
     can :manage, :all if user.is_core?
   
+    # Can manage own user
     can :manage, User, id: user.id
-  
     # Can manage own identities
     can :manage, Identity, user_id: user.id
-  
-    # Can see public gamers
-    # Can manage himself
+    
+    #= Gamers
     can :manage, Gamer, id: gamer.id
+    can :read, Gamer # Can read other gamers
+    
+    #= Communities
+    can :manage, Community, { id: community_ids } # Can manager own communities
+    can :read, Community # Can read other communities
+    # Advanced memberships conditions
+    can :join, Community
   
-    # Can see own memberships
-    # Can see if team have public mode
-    # Can't see if team have private mode
-    can :manage, Community #, gamers: { id: gamer.id }
-    can :manage, Team #, gamers: { id: gamer.id }
+    #= Teams
+    can :manage, Team, { id: team_ids } # Can manage own teams
+    can :read, Team # Can read other teams
+    # Advanced memberships conditions
+    can :join, Team
   
-    can :manage, Membership # FIXME :)
-
-    # Can see own participations
-    # Can see own events
-    # Can see team events (through participations?)
-    # Can see community events (through participations?)
+    #= Memberships
+    # FIXME: Allow perform action on members by permissions and roles
+    can :manage, Membership, { id: membership_ids } # Can manage own memberships
   end
 end

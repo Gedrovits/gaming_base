@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  load_and_authorize_resource :team, except: [:join, :leave] # FIXME
+  load_and_authorize_resource :team
   
   def index
     # @teams = Team.all
@@ -19,9 +19,8 @@ class TeamsController < ApplicationController
   
   def create
     @team = Team.new(team_params)
-    founder_role = Role.find_by_abbreviation('FNDR')
     @team.memberships.build(type: :gamer_in_team, gamer: current_gamer,
-                            role: founder_role, status: :approved)
+                            role: Role.founder, status: :approved)
     
     if @team.save
       redirect_to @team
@@ -64,9 +63,8 @@ class TeamsController < ApplicationController
     if current_membership
       current_membership.update_attribute(:status, :pending)
     else
-      member_role = Role.find_by_abbreviation('MMBR')
-      @team.memberships.build(type: :gamer_in_team, gamer: current_gamer,
-                              role: member_role, status: :pending)
+      @team.memberships.build(type: :gamer_in_team, gamer: current_gamer, 
+                              role: Role.newbie, status: :pending)
       @team.save
     end
     

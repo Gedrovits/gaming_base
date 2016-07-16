@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  load_and_authorize_resource :community, except: [:join, :leave]
+  load_and_authorize_resource :community
   
   def index
     # @communities = Community
@@ -19,11 +19,8 @@ class CommunitiesController < ApplicationController
   
   def create
     @community = Community.new(community_params)
-    founder_role = Role.find_by_abbreviation('FNDR')
-    
-    @community.memberships.build(type: :gamer_in_community,
-                                 gamer: current_gamer, role: founder_role,
-                                 status: :approved)
+    @community.memberships.build(type: :gamer_in_community, gamer: current_gamer, 
+                                 role: Role.founder, status: :approved)
     
     if @community.save
       redirect_to @community
@@ -66,11 +63,8 @@ class CommunitiesController < ApplicationController
     if current_membership
       current_membership.update_attribute(:status, :pending)
     else
-      member_role = Role.find_by_abbreviation('MMBR')
-      @community.memberships.build(type: :gamer_in_community,
-                                   gamer: current_gamer,
-                                   role: member_role,
-                                   status: :pending)
+      @community.memberships.build(type: :gamer_in_community, gamer: current_gamer, 
+                                   role: Role.newbie, status: :pending)
       @community.save
     end
     
