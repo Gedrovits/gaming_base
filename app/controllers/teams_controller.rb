@@ -1,24 +1,27 @@
 class TeamsController < ApplicationController
-  load_and_authorize_resource :team
-  
   def index
-    # @teams = Team.all
+    @teams = Team
     @teams = @teams.where(arel[:name].matches("%#{params[:name]}%")) unless params[:name].blank?
     @teams = @teams.all
+    authorize Team
   end
   
   def show
     @team = Team.friendly.find(params[:id])
+    authorize @team
   end
   
   def new
     @team = Team.new
+    authorize @team
     
     render 'form'
   end
   
   def create
     @team = Team.new(team_params)
+    authorize @team
+    
     @team.memberships.build(type: :gamer_in_team, gamer: current_gamer,
                             role: Role.founder, status: :approved)
     
@@ -31,12 +34,14 @@ class TeamsController < ApplicationController
   
   def edit
     @team = Team.friendly.find(params[:id])
+    authorize @team
     
     render 'form'
   end
   
   def update
     @team = Team.friendly.find(params[:id])
+    authorize @team
     
     if @team.update_attributes(team_params)
       redirect_to team_path
@@ -47,6 +52,7 @@ class TeamsController < ApplicationController
   
   def destroy
     @team = Team.friendly.find(params[:id])
+    authorize @team
     
     if @team.destroy
       redirect_to team_path
@@ -59,6 +65,7 @@ class TeamsController < ApplicationController
   
   def join
     @team = Team.friendly.find(params[:id])
+    authorize @team
     
     if current_membership
       current_membership.update_attribute(:status, :pending)
@@ -73,6 +80,7 @@ class TeamsController < ApplicationController
   
   def leave
     @team = Team.friendly.find(params[:id])
+    authorize @team
     
     current_membership.update_attribute(:status, :left)
     

@@ -1,7 +1,8 @@
 - model ||= nil
 .btn-group
-  = link_to fa_icon('eye'), polymorphic_path(model), class: 'btn btn-default'
-  - if can? :update, model
+  - if policy(model).show?
+    = link_to fa_icon('eye'), polymorphic_path(model), class: 'btn btn-default'
+  - if policy(model).update? # can? :update, model
     = link_to fa_icon('edit'), edit_polymorphic_path(model), class: 'btn btn-default' 
-  - if can? :delete, model
+  - if policy(model).destroy? # can? :delete, model
     = link_to fa_icon('trash'), polymorphic_path(model), method: :delete, class: 'btn btn-danger'

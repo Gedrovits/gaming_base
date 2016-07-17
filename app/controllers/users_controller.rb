@@ -1,25 +1,29 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource :user
-  
   def index
     @users = User.all
+    authorize User
   end
   
   def show
     @user = User.find(params[:id])
+    authorize @user
   end
-  
+
+  # TODO: Remove
   def new
     @user = User.new
+    authorize User
     
     render 'form'
   end
   
+  # TODO: Remove
   def create
     @user = User.new(user_params)
+    authorize User
     
     if @user.save
-      redirect_to users_path
+      redirect_to :back
     else
       render 'form'
     end
@@ -27,15 +31,17 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    authorize @user
     
     render 'form'
   end
   
   def update
     @user = User.find(params[:id])
+    authorize @user
     
     if @user.update_attributes(user_params)
-      redirect_to users_path
+      redirect_to root_path
     else
       render 'form'
     end
@@ -43,6 +49,7 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
+    authorize @user
     
     if @user.destroy
       redirect_to users_path
@@ -52,8 +59,11 @@ class UsersController < ApplicationController
   end
   
   # Core Only Mega Actions
+  # FIXME: Probably remove that or use more reasonable solution
   
   def become_user
+    authorize User
+    
     allowed = if current_user.is_core?
                 session[:became_user]  = true            unless session[:became_user]
                 session[:superuser_id] = current_user.id unless session[:superuser_id]

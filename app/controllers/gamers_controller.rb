@@ -1,6 +1,4 @@
 class GamersController < ApplicationController
-  load_and_authorize_resource :gamer, except: [:search, :search_results]
-  
   def index
     @gamers = Gamer.all
   end

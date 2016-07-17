@@ -35,4 +35,19 @@ class Membership < ApplicationRecord
         and(arel_table[:community_id].in(community_ids)))
     )
   end
+
+  # FIXME: Find a better way
+  scope :for_entity, ->(entity) {
+    case entity.class
+    when Team then for_teams(entity)
+    when Community then for_community(entity)
+    end
+  }
+  
+  def entity
+    case
+    when gamer_in_team? then team
+    when gamer_in_community?, team_in_community? then community
+    end
+  end
 end

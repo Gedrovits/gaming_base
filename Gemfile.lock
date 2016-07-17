@@ -72,7 +72,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
-    cancancan (1.15.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     css_parser (1.4.2)
@@ -222,6 +221,8 @@ GEM
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
     puma (3.4.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -357,7 +358,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
   byebug
-  cancancan
   database_rewinder
   devise
   devise-i18n
@@ -388,6 +388,7 @@ DEPENDENCIES
   pg (~> 0.18)
   premailer-rails
   puma (~> 3.0)
+  pundit
   rails (~> 5.0.0)
   rails-i18n
   rspec-rails (>= 3.5.0.beta4)

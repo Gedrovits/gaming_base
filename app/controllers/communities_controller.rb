@@ -1,8 +1,6 @@
 class CommunitiesController < ApplicationController
-  load_and_authorize_resource :community
-  
   def index
-    # @communities = Community
+    @communities = Community
     @communities = @communities.where(arel[:name].matches("%#{params[:name]}%")) unless params[:name].blank?
     @communities = @communities.all
   end

@@ -1,20 +1,24 @@
 class MembershipsController < ApplicationController
   def index
     @memberships = Membership.all
+    authorize Membership
   end
   
   def show
     @membership = Membership.find(params[:id])
+    authorize @membership
   end
   
   def new
     @membership = Membership.new
+    authorize @membership
     
     render 'form'
   end
   
   def create
     @membership = Membership.new(membership_params)
+    authorize @membership
     
     if @membership.save
       redirect_to membership_path(@membership)
@@ -25,12 +29,14 @@ class MembershipsController < ApplicationController
   
   def edit
     @membership = Membership.find(params[:id])
+    authorize @membership
     
     render 'form'
   end
   
   def update
     @membership = Membership.find(params[:id])
+    authorize @membership
     
     if @membership.update_attributes(membership_params)
       redirect_to membership_path(@membership)
@@ -41,6 +47,7 @@ class MembershipsController < ApplicationController
   
   def destroy
     @membership = Membership.find(params[:id])
+    authorize @membership
     
     if @membership.destroy
       redirect_to memberships_path
@@ -54,6 +61,7 @@ class MembershipsController < ApplicationController
   # FIXME: Refactor this
   def approve
     @membership = Membership.find(params[:id])
+    authorize @membership
     @membership.update_attribute(:status, :approved)
     
     redirect_to :back
@@ -62,6 +70,7 @@ class MembershipsController < ApplicationController
   # FIXME: Refactor this
   def decline
     @membership = Membership.find(params[:id])
+    authorize @membership
     @membership.update_attribute(:status, :declined)
     
     redirect_to :back
@@ -70,6 +79,7 @@ class MembershipsController < ApplicationController
   # FIXME: Refactor this
   def ban
     @membership = Membership.find(params[:id])
+    authorize @membership
     @membership.update_attribute(:status, :banned)
     
     redirect_to :back
@@ -78,6 +88,7 @@ class MembershipsController < ApplicationController
   # FIXME: Refactor this
   def unban
     @membership = Membership.find(params[:id])
+    authorize @membership
     @membership.update_attribute(:status, :pending)
     
     redirect_to :back
@@ -86,6 +97,7 @@ class MembershipsController < ApplicationController
   # FIXME: Refactor this
   def change_role
     @membership = Membership.find(params[:id])
+    authorize @membership
     @membership.update_attribute(:role_id, params[:role_id])
     
     redirect_to :back

@@ -1,10 +1,19 @@
 - m = membership
 .btn-group
-  - case m.status
+  - case m.status.to_sym
     - when :pending
       = link_to fa_icon('thumbs-o-up', text: 'Approve'), approve_membership_path(m), class: 'btn btn-success'
       = link_to fa_icon('thumbs-o-down', text: 'Decline'), decline_membership_path(m), class: 'btn btn-danger'
+    - when :approved
+      .btn-group
+        %button.btn.btn-default.dropdown-toggle{ data: { toggle: 'dropdown' } }
+          = fa_icon('edit', text: 'Change role')
+          %span.caret
+        %ul.dropdown-menu
+          - Role.all.each do |role|
+            - next if role.id == m.role_id
+            %li= link_to role.to_label, change_role_membership_path(m, role_id: role.id), class: 'dropdown-item'
     - when :banned
       = link_to fa_icon('unlock', text: 'Unban'), unban_membership_path(m), class: 'btn btn-success'
-- unless m.status == :banned
+- unless m.status.to_sym == :banned
   = link_to fa_icon('gavel', text: 'Ban'), ban_membership_path(m), class: 'btn btn-danger'

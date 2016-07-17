@@ -66,8 +66,8 @@ gem 'devise'
 # gem 'devise_invitable'
 gem 'devise-i18n'
 
-#= Authorization
-gem 'cancancan'
+#= Authorization / Policies
+gem 'pundit'
 
 #= OmniAuth
 gem 'omniauth-facebook'

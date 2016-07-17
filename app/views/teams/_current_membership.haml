@@ -1,7 +1,10 @@
 %br
 - if current_membership
   - case current_membership.status.to_sym
-    - when :pending, :approved
+    - when :pending
+      .alert.alert-warning You've pending join request.
+      = link_to 'Cancel', leave_team_path(@team), class: 'btn btn-danger'
+    - when :approved
       = link_to 'Leave', leave_team_path(@team), class: 'btn btn-danger'
     - when :left
       = link_to 'Re-join', join_team_path(@team), class: 'btn btn-success'

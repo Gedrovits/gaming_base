@@ -23,26 +23,19 @@
             %th Status
             %th
         %tbody
-          - @team.memberships.for_gamers.order(:role_id).each do |m|
+          - gamer_memberships.includes(:role).order(:role_id).each do |m|
             %tr
-              %td= m.gamer.username
+              %td
+                = m.gamer.username
+                - if m.gamer.username == current_gamer.username
+                  %span.label.label-default You
               %td
                 = m.role.to_label
-                - if current_membership&.role&.name == 'Founder'
-                  .btn-group
-                    %button.btn.btn-default.dropdown-toggle{ data: { toggle: 'dropdown' } }
-                      = fa_icon('edit', text: 'Change')
-                      %span.caret
-                    %ul.dropdown-menu
-                      - Role.all.each do |role|
-                        - next if role.id == m.role_id
-                        %li= link_to role.to_label, change_role_membership_path(m, role_id: role.id), class: 'dropdown-item' 
               %td= membership_status_label(m)
               %td
-                - if current_membership&.role&.name == 'Founder'
+                - if policy(@team).manage_memberships?
                   = render 'memberships/manage', membership: m
-                - if current_user.is_core?  
-                  = render partial: 'shared/crud_actions', locals: { model: m.gamer }
+                = render partial: 'shared/crud_actions', locals: { model: m.gamer }
   #communities.tab-pane{ role: 'tabpanel' }
     - community_memberships = @team.memberships.for_communities
     - if community_memberships.blank?
