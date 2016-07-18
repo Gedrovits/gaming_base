@@ -55,9 +55,14 @@ Rails.application.routes.draw do
   
   authenticated(:user) do
     get '/', to: 'gamers#home', as: :user_root
-    get '/gamer', to: 'gamers#gamer', as: :user_gamer
-    post '/update_gamer', to: 'gamers#update_gamer', as: :user_update_gamer
-    get '/my_games', to: 'users#games', as: :user_games
+    
+    namespace :settings do
+      get :gamer
+      match :update_gamer, via: [:patch, :put]
+      get :user
+      match :update_user, via: [:patch, :put]
+      get :identities
+    end
     
     # FIXME: Play with simplified UI
     get 'lets-play', to: 'gamers#lets_play'

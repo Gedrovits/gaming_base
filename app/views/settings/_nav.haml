@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs.nav-justified
+  %li{ class: action_name == 'index' || action_name == 'gamer' ? 'active' : '' }
+    = link_to 'Gamer', settings_gamer_path
+  %li{ class: action_name == 'user' ? 'active' : '' }
+    = link_to 'User', settings_user_path
+  %li{ class: action_name == 'identities' ? 'active' : '' }
+    = link_to 'Identities', settings_identities_path

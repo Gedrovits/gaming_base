@@ -37,24 +37,6 @@ class GamersController < ApplicationController
   def explore
   end
   
-  # GET /gamer
-  def gamer
-    @gamer = current_user.gamer
-    
-    render 'form'
-  end
-  
-  # POST /update_gamer
-  def update_gamer
-    @gamer = current_user.gamer
-    
-    if @gamer.update_attributes(gamer_path)
-      redirect_to user_gamer_path
-    else
-      render 'form'
-    end
-  end
-  
   def search
     @filters = OpenStruct.new
     # Set smart defaults from current gamer...

@@ -1,0 +1,14 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li= link_to "Settings", '#'
+  %li.active User
+
+%h1 Settings
+= render partial: 'nav'
+
+= simple_form_for @user, url: settings_update_user_path do |f|
+  = f.input :locale, collection: [:en, :ru]
+  = f.input :time_zone
+  
+  = render 'shared/bottom_context_menu' do
+    %button.btn.btn-success.navbar-btn{ type: "submit" } Save changes

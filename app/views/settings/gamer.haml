@@ -1,0 +1,37 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li= link_to "Settings", '#'
+  %li.active Gamer
+
+%h1 Settings
+= render partial: 'nav'
+
+= simple_form_for @gamer, url: settings_update_gamer_path do |f|
+  .row
+    .col-md-4
+      %fieldset
+        %legend Personal
+        = f.input :first_name
+        = f.input :middle_name
+        = f.input :last_name
+        = f.input :birth_date
+        = f.input :sex, collection: Gamer.sexes.keys.to_a, as: :radio_buttons
+        = f.input :age
+    .col-md-4
+      %fieldset
+        %legend Additional
+        = f.input :username, input_html: { disabled: true }
+        = f.input :description
+        = f.input :dedication, collection: Gamer.dedications.keys.to_a, as: :radio_buttons
+        = f.input :weekday_availability, collection: Gamer.weekday_availabilities.keys.to_a, as: :radio_buttons
+        = f.input :weekend_availability, collection: Gamer.weekend_availabilities.keys.to_a, as: :radio_buttons
+        = f.input :swearing, collection: Gamer.swearings.keys.to_a, as: :radio_buttons
+        = f.input :swearing_tolerance, collection: Gamer.swearing_tolerances.keys.to_a, as: :radio_buttons
+        = f.input :privacy, collection: Gamer.privacies.keys.to_a, as: :radio_buttons
+    .col-md-4
+      %fieldset
+        %legend Games
+        = f.association :games, as: :check_boxes
+
+  = render 'shared/bottom_context_menu' do
+    %button.btn.btn-success.navbar-btn{ type: "submit" } Save changes

@@ -52,11 +52,6 @@ class GamesController < ApplicationController
     end
   end
   
-  def my
-    # @my_games = current_gamer.games
-    # @games = Game.where.not(id: @my_games.map(&:id)).all
-  end
-  
   private
   
   def game_params
@@ -66,5 +61,4 @@ class GamesController < ApplicationController
   def arel
     Game.arel_table
   end
-
 end

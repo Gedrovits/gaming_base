@@ -1,0 +1,21 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li= link_to "Settings", '#'
+  %li.active Identities
+
+%h1 Settings
+= render partial: 'nav'
+
+- if @identities.blank?
+  %h3 No identities.
+- else
+  %table.table
+    %thead
+      %tr
+        %th User ID
+        %th UID
+        %th Provider
+        %th Created at
+        %th Updated at
+    %tbody
+      = render @identities
