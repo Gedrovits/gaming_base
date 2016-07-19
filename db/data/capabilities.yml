@@ -1,0 +1,7 @@
+capabilities:
+  manage_entity: ''
+  disband_entity: ''
+  invite_members: ''
+  approve_new_members: ''
+  change_member_roles: ''
+  change_member_status: ''

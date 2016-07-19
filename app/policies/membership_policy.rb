@@ -3,7 +3,7 @@ class MembershipPolicy < ApplicationPolicy
   
   def manage?
     @entity = @record.entity
-    membership.role_id == Role.founder.id
+    membership.role_id == Role.leader.id
   end
   
   def approve?

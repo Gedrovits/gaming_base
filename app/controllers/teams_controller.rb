@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
     authorize @team
     
     @team.memberships.build(type: :gamer_in_team, gamer: current_gamer,
-                            role: Role.founder, status: :approved)
+                            role: Role.leader, status: :approved)
     
     if @team.save
       redirect_to @team
@@ -71,7 +71,7 @@ class TeamsController < ApplicationController
       current_membership.update_attribute(:status, :pending)
     else
       @team.memberships.build(type: :gamer_in_team, gamer: current_gamer, 
-                              role: Role.newbie, status: :pending)
+                              role: Role.recruit, status: :pending)
       @team.save
     end
     

@@ -14,11 +14,12 @@ data = nil
 
 # Create sample roles
 data = YAML.load(File.read("#{data_path}/roles.yml"))
-Role.create(data.map{ |n| { name: n[0], abbreviation: n[1], active: true } })
+Role.create(data.values.map{ |n| { name: n['name'], abbreviation: n['abbr'], active: true } })
 data = nil
 
-founder_role = Role.find_by_abbreviation('FNDR')
-member_role = Role.find_by_abbreviation('MMBR')
+leader_role = Role.leader
+vice_leader_role = Role.vice_leader
+member_role = Role.member
 
 # Create GB sample data
 
@@ -31,11 +32,11 @@ gb_c = Community.create(name: 'Gaming Base', abbreviation: 'GB')
 gb_t = Team.create(name: 'Gaming Base Team', abbreviation: 'GBT')
 
 gb_g.memberships.build(type: :gamer_in_community,
-                       community: gb_c, role: founder_role, status: :approved)
+                       community: gb_c, role: leader_role, status: :approved)
 gb_g.memberships.build(type: :gamer_in_team,
-                       team: gb_t, role: founder_role, status: :approved)
+                       team: gb_t, role: leader_role, status: :approved)
 gb_t.memberships.build(type: :team_in_community,
-                       community: gb_c, role: founder_role, status: :approved)
+                       community: gb_c, role: leader_role, status: :approved)
 gb_g.save
 
 # Create League of Legends sample data...
@@ -53,7 +54,7 @@ data.each do |d|
   team.description = "#{d['community'][1]} is the best team!"
   team.games << league_of_legends
   team.memberships.build(type: :team_in_community,
-                         community: community, role: founder_role, status: :approved, privacy: :team_or_community)
+                         community: community, role: leader_role, status: :approved, privacy: :team_or_community)
   team.save
   
   unless d['members'].blank?
@@ -76,7 +77,13 @@ data.each do |d|
       gamer.last_name   = m[2]
       gamer.games << league_of_legends
       
-      role = idx == 0 ? founder_role : member_role
+      role = case idx
+             when 0 then leader_role
+             when 1 then vice_leader_role
+             else
+               member_role
+             end
+      
       gamer.memberships.build(type: :gamer_in_community,
                               community: community, role: role, status: :approved, privacy: :team_or_community)
       gamer.memberships.build(type: :gamer_in_team,

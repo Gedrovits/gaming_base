@@ -18,31 +18,35 @@ class Role < ApplicationRecord
   
   # Shortcut methods to load specific roles
   
-  def self.founder
-    find_by(abbreviation: 'FNDR')
-  end
-  
   def self.leader
-    find_by(abbreviation: 'LDR')
+    find_by(abbreviation: 'L')
   end
   
-  def self.second_in_command
-    find_by(abbreviation: '2IC')
+  def self.vice_leader
+    find_by(abbreviation: 'VL')
   end
   
-  def self.manager
-    find_by(abbreviation: 'MNGR')
+  def self.veteran_officer
+    find_by(abbreviation: 'VO')
+  end
+  
+  def self.officer
+    find_by(abbreviation: 'O')
+  end
+  
+  def self.veteran_member
+    find_by(abbreviation: 'VM')
   end
   
   def self.member
-    find_by(abbreviation: 'MMBR')
+    find_by(abbreviation: 'M')
   end
   
-  def self.newbie
-    find_by(abbreviation: 'NWB')
+  def self.recruit
+    find_by(abbreviation: 'R')
   end
   
   def self.friend
-    find_by(abbreviation: 'FRND')
+    find_by(abbreviation: 'F')
   end
 end

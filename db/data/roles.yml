@@ -1,8 +1,33 @@
-- ['Founder', 'FNDR', 'Who founded community / team']
-- ['Leader', 'LDR', 'Who manages community / team; Commanding Officer']
-- ['Second-in-Command', '2IC', 'Backup leader in case of missing Leader; Executive Officer']
-- ['Manager', 'MNGR', 'Who manages some specific part in entity']
-- ['Member', 'MMBR', 'Participates in entity']
-- ['Newbie', 'NWB', 'Newbie and/or Trainee in the entity']
-- ['Friend', 'FRND', 'Not active member but with some permissions like read-only']
-- ['Guest', 'GST', 'Minimal if any permissions in the entity']
+leader:
+  name: 'Leader'
+  abbr: 'L'
+  description: 'Who manages community / team; Commanding Officer'
+vice_leader:
+  name: 'Vice Leader' # Second-in-Command, 2IC, Executive Officer
+  abbr: 'VL'
+  description: 'In case of missing or not accessible Leader takes their functions'
+veteran_officer:
+  name: 'Veteran Officer'
+  abbr: 'VO'
+  description: 'Veteran Officer'
+officer:
+  name: 'Officer'
+  abbr: 'O'
+  description: 'Executive Officer'
+veteran_member:
+  name: 'Veteran Member'
+  abbr: 'VM'
+  description: 'Someone with a long history in entity'
+  permissions: []
+member:
+  name: 'Member'
+  abbr: 'M'
+  description: 'Regular Member'
+recruit:
+  name: 'Recruit' # Trainee / Recruit
+  abbr: 'R'
+  description: 'New Member'
+friend:
+  name: 'Friend' # Retiree
+  abbr: 'F'
+  description: 'Not active member but who can participate in some way in team life'

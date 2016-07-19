@@ -18,7 +18,7 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
     @community.memberships.build(type: :gamer_in_community, gamer: current_gamer, 
-                                 role: Role.founder, status: :approved)
+                                 role: Role.leader, status: :approved)
     
     if @community.save
       redirect_to @community
@@ -62,7 +62,7 @@ class CommunitiesController < ApplicationController
       current_membership.update_attribute(:status, :pending)
     else
       @community.memberships.build(type: :gamer_in_community, gamer: current_gamer, 
-                                   role: Role.newbie, status: :pending)
+                                   role: Role.recruit, status: :pending)
       @community.save
     end
     

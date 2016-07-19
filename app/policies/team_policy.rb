@@ -6,11 +6,11 @@ class TeamPolicy < ApplicationPolicy
   end
   
   def update?
-    membership&.role_id == Role.founder.id
+    membership&.role_id == Role.leader.id
   end
   
   def destroy?
-    membership&.role_id == Role.founder.id
+    membership&.role_id == Role.leader.id
   end
   
   def join?
@@ -22,7 +22,7 @@ class TeamPolicy < ApplicationPolicy
   end
   
   def manage_memberships?
-    membership && membership.approved? && membership.role_id == Role.founder.id
+    membership && membership.approved? && membership.role_id == Role.leader.id
   end
   
   private
