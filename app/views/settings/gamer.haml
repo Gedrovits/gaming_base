@@ -32,6 +32,16 @@
       %fieldset
         %legend Games
         = f.association :games, as: :check_boxes
+  .row
+    %fieldset
+      %legend Language Proficiencies
+      = f.simple_fields_for :language_proficiencies do |lp_form|
+        .col-md-4
+          = lp_form.input :language, collection: %w(en ru)
+          = lp_form.input :native
+          = lp_form.input :understanding, collection: LanguageProficiency.understandings.keys.to_a, as: :radio_buttons
+          = lp_form.input :speaking, collection: LanguageProficiency.speakings.keys.to_a, as: :radio_buttons
+          = lp_form.input :writing, collection: LanguageProficiency.writings.keys.to_a, as: :radio_buttons
 
   = render 'shared/bottom_context_menu' do
     %button.btn.btn-success.navbar-btn{ type: "submit" } Save changes

@@ -28,6 +28,10 @@ gb_g = gb_u.build_gamer(username: 'Isamashii Tora', dedication: :hardcore, priva
                         weekday_availability: :evening, weekend_availability: :always,
                         first_name: 'Vjatseslav', middle_name: 'Jurjevits', last_name: 'Gedrovits',
                         birth_date: Date.strptime('01/21/1987', '%m/%d/%Y'), age: 29)
+# Add few language proficiencies
+gb_g.language_proficiencies.build(language: 'en', understanding: :excellent, speaking: :good, writing: :average)
+gb_g.language_proficiencies.build(language: 'ru', native: true, understanding: :excellent, speaking: :excellent, writing: :good)
+
 gb_c = Community.create(name: 'Gaming Base', abbreviation: 'GB')
 gb_t = Team.create(name: 'Gaming Base Team', abbreviation: 'GBT')
 

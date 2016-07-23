@@ -21,6 +21,9 @@ class Gamer < ApplicationRecord
   has_many :communities, through: :memberships
   has_many :teams, through: :memberships
   has_and_belongs_to_many :games
+  has_many :language_proficiencies, inverse_of: :gamer
+  
+  accepts_nested_attributes_for :language_proficiencies
   
   def slug_candidates
     [:username] + Array.new(6) { |index| [:username, index + 2] }
@@ -29,6 +32,4 @@ class Gamer < ApplicationRecord
   def to_label
     "#{first_name} '#{username}' #{last_name}"
   end
-  
-  # Possible language hash: understanding, speaking, writing, native...
 end

@@ -5,6 +5,12 @@ class SettingsController < ApplicationController
   
   def update_gamer
     @gamer = current_user.gamer
+    
+    # FIXME: Maybe not use the nested attributes here?
+    @gamer.language_proficiencies.each do |lp|
+      action = lp.id.blank? ? :create? : :update?
+      authorize lp, action
+    end
   
     if @gamer.update_attributes(gamer_params)
       redirect_back(fallback_location: root_path)
@@ -36,7 +42,9 @@ class SettingsController < ApplicationController
   def gamer_params
     params.require(:gamer).permit(:username, :dedication, :weekday_availability, :weekend_availability, 
                                   :swearing, :swearing_tolerance, :privacy, :description, 
-                                  :first_name, :middle_name, :last_name, :birth_date, :sex, :age, game_ids: [])
+                                  :first_name, :middle_name, :last_name, :birth_date, :sex, :age, game_ids: [], 
+                                  language_proficiencies_attributes: [:id, :gamer_id, :language, :native, 
+                                                                      :understanding, :speaking, :writing])
   end
   
   def user_params

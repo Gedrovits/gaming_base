@@ -109,6 +109,19 @@ ActiveRecord::Schema.define(version: 20160711170506) do
     t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
+  create_table "language_proficiencies", force: :cascade do |t|
+    t.integer  "gamer_id"
+    t.string   "language"
+    t.boolean  "native",                  default: false
+    t.integer  "understanding", limit: 2, default: 1
+    t.integer  "speaking",      limit: 2, default: 1
+    t.integer  "writing",       limit: 2, default: 1
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["gamer_id", "language"], name: "index_language_proficiencies_on_gamer_id_and_language", unique: true, using: :btree
+    t.index ["gamer_id"], name: "index_language_proficiencies_on_gamer_id", using: :btree
+  end
+
   create_table "memberships", force: :cascade do |t|
     t.uuid     "uuid",         default: -> { "gen_random_uuid()" }
     t.integer  "type"
@@ -193,6 +206,7 @@ ActiveRecord::Schema.define(version: 20160711170506) do
   add_foreign_key "games_teams", "games"
   add_foreign_key "games_teams", "teams"
   add_foreign_key "identities", "users"
+  add_foreign_key "language_proficiencies", "gamers"
   add_foreign_key "memberships", "communities"
   add_foreign_key "memberships", "gamers"
   add_foreign_key "memberships", "roles"

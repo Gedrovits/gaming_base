@@ -37,9 +37,6 @@ gem 'jquery-rails'
 gem 'sprockets-es6'
 gem 'autoprefixer-rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # gem 'hiredis'
@@ -53,9 +50,10 @@ gem 'friendly_id' #, '>= 5.1'
 gem 'premailer-rails'
 
 #= I18n Stuff
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.0.0'
 gem 'i18n-tasks' # https://github.com/glebm/i18n-tasks
 gem 'http_accept_language' # https://github.com/iain/http_accept_language
+gem 'devise-i18n'
 
 #= Jobs processing
 # gem 'sidekiq'
@@ -64,7 +62,6 @@ gem 'http_accept_language' # https://github.com/iain/http_accept_language
 gem 'devise'
 # gem 'devise_uid'
 # gem 'devise_invitable'
-gem 'devise-i18n'
 
 #= Authorization / Policies
 gem 'pundit'

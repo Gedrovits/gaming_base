@@ -193,5 +193,21 @@ class AlphaTables < ActiveRecord::Migration[5.0]
       
       t.timestamps
     end
+    
+    #= LanguageProficiencies
+    create_table :language_proficiencies do |t|
+      t.references :gamer, foreign_key: true # FIXME: Should it be user who knows languages, not gamer?
+      t.string :language # iso_639_1
+      
+      t.boolean :native, default: false
+      # PG smallint
+      t.integer :understanding, default: 1, limit: 2
+      t.integer :speaking, default: 1, limit: 2
+      t.integer :writing, default: 1, limit: 2
+      
+      t.timestamps
+
+      t.index [:gamer_id, :language], unique: true
+    end
   end
 end
