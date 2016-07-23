@@ -53,6 +53,11 @@ Rails.application.routes.draw do
     end
   end
   
+  # API specifics
+  namespace :api do
+    resources :gamers, only: [:index]
+  end
+  
   authenticated(:user) do
     get '/', to: 'gamers#home', as: :user_root
     
