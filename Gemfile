@@ -139,7 +139,7 @@ group :development do
 
   # Deploy
   gem 'mina' # http://mina-deploy.github.io/mina/
-  gem 'mina-unicorn', require: false
+  gem 'mina-puma', require: false
   gem 'mina-nginx', require: false
   # gem 'mina-stack', github: 'div/mina-stack'
   # gem 'mina-sidekiq', require: false

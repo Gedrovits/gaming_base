@@ -4,9 +4,9 @@ require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
-require 'mina/unicorn'
+require 'mina/puma'
 require 'mina/nginx'
-require 'mina_sidekiq/tasks'
+# require 'mina_sidekiq/tasks'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -16,7 +16,7 @@ require 'mina_sidekiq/tasks'
 
 set :domain, 'gamingbase.co'
 set :deploy_to, '/home/deployer/gamingbase'
-set :repository, 'git@gitlab.com:Gedrovits/gamingbase.git'
+set :repository, 'git@gitlab.com:Gedrovits/gaming_base.git'
 set :branch, 'master'
 
 # set :unicorn_config, "#{deploy_to}/#{current_path}/config/unicorn.rb"
@@ -83,7 +83,7 @@ task :deploy => :environment do
     to :launch do
       # queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
       # queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
-      invoke :'unicorn:restart'
+      invoke :'puma:phased_restart'
     end
   end
 end

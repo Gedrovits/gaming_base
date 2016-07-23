@@ -171,7 +171,9 @@ GEM
       rake
     mina-nginx (0.0.1)
       mina (~> 0)
-    mina-unicorn (0.4.0)
+    mina-puma (0.3.1)
+      mina
+      puma (>= 2.13)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
@@ -375,7 +377,7 @@ DEPENDENCIES
   mime-types (~> 3.1)
   mina
   mina-nginx
-  mina-unicorn
+  mina-puma
   nokogiri (~> 1.6)
   oauth2!
   oj
