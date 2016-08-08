@@ -1,0 +1,10 @@
+ru:
+  private_menu:
+    search_placeholder: Поиск...
+    lets_play: Играй
+    organize: Организуй
+    explore: Исследуй
+  user_menu:
+    gamer: Я
+    settings: Настройки
+    sign_out: Выйти

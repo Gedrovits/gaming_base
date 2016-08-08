@@ -1,0 +1,26 @@
+en:
+  pages:
+    homepage:
+      value_proposition:
+        header_html: "Organize your gaming life like never before, for <u>free</u>."
+        description_html: "Made with %{heart} for gamers by gamers."
+        optional: "Public Beta coming soon."
+      features:
+        organize:
+          header: Organize community and/or team
+          description: Efficiently manage all your community and/or team needs.
+          first: Manage events
+          second: Collect statistics and data
+          third: Compare and find others
+        play:
+          header: Find gamers to play your favourite games
+          description: It's easy to find perfect partners for your favourite games.
+          first: Smart filters
+          second: Make friends in process
+          third: Form or join team with favourite ones
+        other:
+          header: Integration with social and gaming services
+          description: Connect and use most of your existing services and data.
+          first: Easily connect services
+          second: Collect and synchronize data
+          third: Agile privacy settings

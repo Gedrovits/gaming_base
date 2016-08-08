@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      community:
+        one: Community
+        other: Communities
+      game:
+        one: Game
+        other: Games
+      gamer:
+        one: Gamer
+        other: Gamers
+      team:
+        one: Team
+        other: Teams
+      user:
+        one: User
+        other: Users

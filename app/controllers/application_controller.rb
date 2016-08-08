@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   around_action :set_time_zone
   
   def set_locale
-    I18n.locale = if user_signed_in?
+    I18n.locale = if params[:hl]
+                    params[:hl]
+                  elsif user_signed_in?
                     current_user.locale
                   else
                     I18n.default_locale

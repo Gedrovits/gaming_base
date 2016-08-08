@@ -1,0 +1,10 @@
+en:
+  private_menu:
+    search_placeholder: Search...
+    lets_play: Let's play
+    organize: Organize
+    explore: Explore
+  user_menu:
+    gamer: Me
+    settings: Settings
+    sign_out: Sign out

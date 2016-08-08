@@ -25,6 +25,7 @@ module GamingBase
     config.time_zone = 'UTC'.freeze
 
     config.i18n.default_locale = :en
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     # Generate only what required
     config.generators do |g|
