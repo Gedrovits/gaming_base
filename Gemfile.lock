@@ -1,15 +1,3 @@
-GIT
-  remote: git://github.com/matthewrudy/oauth2.git
-  revision: 030cf008d6821d475f7de44054cc50dd42597750
-  branch: rack2
-  specs:
-    oauth2 (1.0.0)
-      faraday (>= 0.8, < 0.10)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (>= 1.0, < 3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,9 +39,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (7.0.0)
+    arel (7.1.1)
     ast (2.3.0)
-    autoprefixer-rails (6.3.7)
+    autoprefixer-rails (6.4.0.1)
       execjs
     awesome_print (1.7.0)
     babel-source (5.8.35)
@@ -67,17 +55,16 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
-    css_parser (1.4.2)
+    css_parser (1.4.5)
       addressable
-    daemons (1.2.3)
-    database_rewinder (0.6.2)
+    database_rewinder (0.6.4)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -93,7 +80,6 @@ GEM
       thread
       thread_safe
     erubis (2.7.0)
-    eventmachine (1.0.9.1)
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -103,15 +89,13 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     fast_blank (1.0.0)
-    ffi (1.9.13)
+    ffi (1.9.14)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    globalid (0.3.6)
+    globalid (0.3.7)
       activesupport (>= 4.1.0)
-    haml (4.0.7)
-      tilt
     hamlit (2.5.0)
       temple (~> 0.7.6)
       thor
@@ -145,6 +129,10 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -152,16 +140,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    mailcatcher (0.2.4)
-      eventmachine
-      haml
-      i18n
-      json
-      mail
-      sinatra
-      skinny (>= 0.1.2)
-      sqlite3-ruby
-      thin
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -184,12 +162,18 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     oauth (0.5.1)
-    oj (2.16.1)
+    oauth2 (1.2.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    oj (2.17.1)
     oj_mimic_json (1.0.1)
     omniauth (1.3.1)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
-    omniauth-facebook (3.0.0)
+    omniauth-facebook (4.0.0)
       omniauth-oauth2 (~> 1.2)
     omniauth-github (1.1.2)
       omniauth (~> 1.0)
@@ -216,13 +200,13 @@ GEM
       ast (~> 2.2)
     pg (0.18.4)
     pkg-config (1.1.7)
-    premailer (1.8.6)
-      css_parser (>= 1.3.6)
+    premailer (1.8.7)
+      css_parser (>= 1.4.5)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.9.3)
+    premailer-rails (1.9.4)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    puma (3.4.0)
+    puma (3.6.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.1)
@@ -260,7 +244,7 @@ GEM
       ffi (>= 0.5.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
-    rspec-core (3.5.1)
+    rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -278,7 +262,7 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     sass (3.4.22)
-    sass-rails (5.0.5)
+    sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -296,19 +280,14 @@ GEM
     simplecov-csv (0.1.3)
       simplecov
     simplecov-html (0.10.0)
-    sinatra (1.0)
-      rack (>= 1.0)
-    skinny (0.2.4)
-      eventmachine (~> 1.0.0)
-      thin (>= 1.5, < 1.7)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
       spring (~> 1.2)
-    sprockets (3.6.3)
+    sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-es6 (0.9.0)
+    sprockets-es6 (0.9.1)
       babel-source (>= 5.8.11)
       babel-transpiler
       sprockets (>= 3.0.0)
@@ -316,28 +295,21 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
     temple (0.7.7)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
     terminal-table (1.6.0)
-    thin (1.6.2)
-      daemons (>= 1.0.9)
-      eventmachine (>= 1.0.0)
-      rack (>= 1.0.0)
     thor (0.19.1)
     thread (0.2.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    tins (1.10.2)
-    turbolinks (5.0.0)
+    tins (1.12.0)
+    turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
+    uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
@@ -372,14 +344,14 @@ DEPENDENCIES
   i18n-tasks
   jquery-rails
   kaminari
+  letter_opener (~> 1.4)
   listen (~> 3.0.5)
-  mailcatcher
   mime-types (~> 3.1)
   mina
   mina-nginx
   mina-puma
   nokogiri (~> 1.6)
-  oauth2!
+  oauth2
   oj
   oj_mimic_json
   omniauth-facebook
@@ -393,7 +365,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.0.0)
   rails-i18n (~> 5.0.0)
-  rspec-rails (>= 3.5.0.beta4)
+  rspec-rails (~> 3.5, >= 3.5.1)
   sass-rails (~> 5.0)
   shoulda-matchers (>= 2.8, < 3)
   simple_form

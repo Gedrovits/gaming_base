@@ -67,13 +67,11 @@ gem 'devise'
 gem 'pundit'
 
 #= OmniAuth
+gem 'oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
-# FIXME: Until the official oauth2 library will merge this pull request: https://github.com/intridea/oauth2/pull/226
-# Pull request is closed...
-gem 'oauth2', github: 'matthewrudy/oauth2', branch: 'rack2'
 gem 'omniauth-twitch'
 
 #= View Layer Stuff
@@ -93,9 +91,8 @@ gem 'kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
-  # FIXME: Review
-  gem 'rspec-rails', '>= 3.5.0.beta4'
+  
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'shoulda-matchers', '>= 2.8', '< 3'
   gem 'factory_girl_rails', '>= 4.6'
   # gem 'database_cleaner', '>= 1.5', '< 2'
@@ -113,7 +110,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   
-  gem 'mailcatcher'
+  gem 'letter_opener', '~> 1.4'
 
   # Akira Matsuda Tools
   # gem 'traceroute'
