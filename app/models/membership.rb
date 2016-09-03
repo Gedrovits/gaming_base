@@ -1,5 +1,6 @@
 class Membership < ApplicationRecord
   self.inheritance_column = :x
+  acts_as_paranoid
   
   include PrivacySupport
   

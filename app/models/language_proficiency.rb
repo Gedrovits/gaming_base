@@ -1,4 +1,6 @@
 class LanguageProficiency < ApplicationRecord
+  acts_as_paranoid
+  
   belongs_to :gamer
   
   PROFICIENCIES = { none: 0, poor: 1, below_average: 2, average: 3, good: 4, excellent: 5 }.freeze

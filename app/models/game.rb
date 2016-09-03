@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
+  acts_as_paranoid
   
   # Relations
   has_and_belongs_to_many :communities

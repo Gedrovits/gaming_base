@@ -15,10 +15,10 @@ FriendlyId.defaults do |config|
   # Some words could conflict with Rails's routes when used as slugs, or are
   # undesirable to allow as slugs. Edit this list as needed for your app.
   config.use :reserved
-  
+
   config.reserved_words = %w(new edit index session login logout users admin
     stylesheets assets javascripts images)
-  
+
   #  ## Friendly Finders
   #
   # Uncomment this to use friendly finders in all models. By default, if
@@ -76,9 +76,9 @@ FriendlyId.defaults do |config|
   # }
   #
   # FriendlyId uses Rails's `parameterize` method to generate slugs, but for
-  # languages that don't use the Roman alphabet, that's not usually suffient. Here
-  # we use the Babosa library to transliterate Russian Cyrillic slugs to ASCII. If
-  # you use this, don't forget to add "babosa" to your Gemfile.
+  # languages that don't use the Roman alphabet, that's not usually sufficient.
+  # Here we use the Babosa library to transliterate Russian Cyrillic slugs to
+  # ASCII. If you use this, don't forget to add "babosa" to your Gemfile.
   #
   # config.use Module.new {
   #   def normalize_friendly_id(text)

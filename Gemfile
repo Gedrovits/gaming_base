@@ -14,13 +14,15 @@ gem 'oj'
 gem 'oj_mimic_json'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+gem 'paranoia', '~> 2.2.0.pre' # FIXME: Replace when stable one is released
 
 #= Assets Stuff
 # Use SCSS for stylesheets
@@ -51,9 +53,12 @@ gem 'premailer-rails'
 
 #= I18n Stuff
 gem 'rails-i18n', '~> 5.0.0'
+gem 'devise-i18n'
+
 gem 'i18n-tasks' # https://github.com/glebm/i18n-tasks
 gem 'http_accept_language' # https://github.com/iain/http_accept_language
-gem 'devise-i18n'
+
+gem 'i18n-js', '>= 3.0.0.rc11'
 
 #= Jobs processing
 # gem 'sidekiq'
@@ -75,8 +80,13 @@ gem 'omniauth-github'
 gem 'omniauth-twitch'
 
 #= View Layer Stuff
+gem 'browser'
+
 # gem 'hamlit' # https://github.com/k0kubun/hamlit
 gem 'hamlit-rails'
+
+gem 'gon'
+# gem 'ejs'
 
 # gem 'haml-rails'
 gem 'font-awesome-rails' #, '>= 4.x', '< 5'
@@ -91,6 +101,7 @@ gem 'kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'parallel_tests'
   
   gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'shoulda-matchers', '>= 2.8', '< 3'
@@ -105,7 +116,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -1,6 +1,7 @@
 class Gamer < ApplicationRecord
   extend FriendlyId
   friendly_id :username, use: :slugged
+  acts_as_paranoid
   
   include PrivacySupport
   
