@@ -22,6 +22,7 @@ class Gamer < ApplicationRecord
   has_many :teams, through: :memberships
   has_and_belongs_to_many :games
   has_many :language_proficiencies, inverse_of: :gamer
+  has_and_belongs_to_many :gaming_sessions
   
   accepts_nested_attributes_for :language_proficiencies
   

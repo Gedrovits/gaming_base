@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20160711170506) do
     t.index ["gamer_id", "game_id"], name: "index_gamers_games_on_gamer_id_and_game_id", unique: true, using: :btree
   end
 
+  create_table "gamers_gaming_sessions", id: false, force: :cascade do |t|
+    t.uuid    "gaming_session_id",             null: false
+    t.integer "gamer_id",                      null: false
+    t.integer "status",            default: 0
+    t.index ["gamer_id"], name: "index_gamers_gaming_sessions_on_gamer_id", using: :btree
+    t.index ["gaming_session_id", "gamer_id"], name: "index_gamers_gaming_sessions_on_gaming_session_id_and_gamer_id", unique: true, using: :btree
+    t.index ["gaming_session_id"], name: "index_gamers_gaming_sessions_on_gaming_session_id", using: :btree
+  end
+
   create_table "games", force: :cascade do |t|
     t.uuid     "uuid",         default: -> { "gen_random_uuid()" }
     t.string   "name"
@@ -93,10 +102,29 @@ ActiveRecord::Schema.define(version: 20160711170506) do
     t.datetime "updated_at",                                        null: false
   end
 
+  create_table "games_gaming_sessions", id: false, force: :cascade do |t|
+    t.uuid    "gaming_session_id", null: false
+    t.integer "game_id",           null: false
+    t.index ["game_id"], name: "index_games_gaming_sessions_on_game_id", using: :btree
+    t.index ["gaming_session_id", "game_id"], name: "index_games_gaming_sessions_on_gaming_session_id_and_game_id", unique: true, using: :btree
+    t.index ["gaming_session_id"], name: "index_games_gaming_sessions_on_gaming_session_id", using: :btree
+  end
+
   create_table "games_teams", id: false, force: :cascade do |t|
     t.integer "team_id", null: false
     t.integer "game_id", null: false
     t.index ["team_id", "game_id"], name: "index_games_teams_on_team_id_and_game_id", unique: true, using: :btree
+  end
+
+  create_table "gaming_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer   "type",                     default: 0
+    t.integer   "status",                   default: 0
+    t.integer   "privacy",                  default: 0
+    t.tstzrange "duration"
+    t.string    "description", limit: 1000
+    t.datetime  "created_at",                           null: false
+    t.datetime  "updated_at",                           null: false
+    t.index ["privacy"], name: "index_gaming_sessions_on_privacy", using: :btree
   end
 
   create_table "identities", force: :cascade do |t|
@@ -203,6 +231,10 @@ ActiveRecord::Schema.define(version: 20160711170506) do
   add_foreign_key "gamers", "users"
   add_foreign_key "gamers_games", "gamers"
   add_foreign_key "gamers_games", "games"
+  add_foreign_key "gamers_gaming_sessions", "gamers"
+  add_foreign_key "gamers_gaming_sessions", "gaming_sessions"
+  add_foreign_key "games_gaming_sessions", "games"
+  add_foreign_key "games_gaming_sessions", "gaming_sessions"
   add_foreign_key "games_teams", "games"
   add_foreign_key "games_teams", "teams"
   add_foreign_key "identities", "users"

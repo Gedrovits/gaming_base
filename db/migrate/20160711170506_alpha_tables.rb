@@ -209,5 +209,30 @@ class AlphaTables < ActiveRecord::Migration[5.0]
 
       t.index [:gamer_id, :language], unique: true
     end
+    
+    #= GamingSessions
+    create_table :gaming_sessions, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
+      t.integer :type, default: 0
+      t.integer :status, default: 0
+      t.integer :privacy, index: true, default: 0
+      t.tstzrange :duration
+      t.string :description, limit: 1000
+      
+      t.timestamps
+    end
+    
+    create_join_table :gaming_sessions, :games do |t|
+      t.references :gaming_session, type: :uuid, foreign_key: true, null: false
+      t.references :game, foreign_key: true, null: false
+      t.index [:gaming_session_id, :game_id], unique: true
+    end
+    
+    create_join_table :gaming_sessions, :gamers do |t|
+      t.references :gaming_session, type: :uuid, foreign_key: true, null: false
+      t.references :gamer, foreign_key: true, null: false
+      t.index [:gaming_session_id, :gamer_id], unique: true
+
+      t.integer :status, default: 0
+    end
   end
 end

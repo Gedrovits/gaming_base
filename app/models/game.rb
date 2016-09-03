@@ -6,6 +6,7 @@ class Game < ApplicationRecord
   has_and_belongs_to_many :communities
   has_and_belongs_to_many :teams
   has_and_belongs_to_many :gamers
+  has_and_belongs_to_many :gaming_sessions
   
   # Validations
   validates :name, presence: true
