@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :community do
-    uuid          nil
     sequence(:name) { |n| "community#{n}" }
     abbreviation  ''
     description   ''
@@ -13,7 +12,6 @@ FactoryGirl.define do
   end
 
   factory :game do
-    uuid          nil
     sequence(:name) { |n| "game#{n}" }
     slug          ''
     abbreviation  ''
@@ -21,8 +19,7 @@ FactoryGirl.define do
   end
 
   factory :gamer do
-    uuid                  nil
-    user_id               1
+    user_id               { SecureRandom.uuid }
     username              ''
     description           ''
     slug                  ''
@@ -43,26 +40,23 @@ FactoryGirl.define do
   end
 
   factory :identity do
-    uuid        nil
-    user_id     nil
+    user_id { SecureRandom.uuid }
     sequence(:uid) { |n| "UID-#{n}" }
     sequence(:provider) { |n| "P-#{n}" }
   end
 
   factory :membership do
-    uuid          nil
     type          1
-    community_id  1
-    team_id       1
-    gamer_id      1
-    role_id       1
+    community_id  { SecureRandom.uuid }
+    team_id       { SecureRandom.uuid }
+    gamer_id      { SecureRandom.uuid }
+    role_id       { SecureRandom.uuid }
     active        true
     privacy       100
     status        0
   end
 
   factory :role do
-    uuid          nil
     sequence(:name) { |n| "Role#{n}" }
     slug          ''
     abbreviation  ''
@@ -70,7 +64,6 @@ FactoryGirl.define do
   end
 
   factory :team do
-    uuid          nil
     name          ''
     abbreviation  ''
     description   ''
@@ -82,7 +75,6 @@ FactoryGirl.define do
   end
 
   factory :user do
-    uuid                    nil
     active                  true
     is_core                 true
     locale                  'en'

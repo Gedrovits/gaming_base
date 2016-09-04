@@ -1,0 +1,17 @@
+= simple_form_for @gaming_session do |f|
+  .row
+    .col-md-4= f.input :description
+    .col-md-4= f.input :starts_at
+    .col-md-4= f.input :ends_at
+  .row
+    .col-md-4
+      = f.input :type, collection: GamingSession.types.keys.to_a, as: :radio_buttons
+    .col-md-4
+      = f.input :status, collection: GamingSession.statuses.keys.to_a, as: :radio_buttons
+    .col-md-4
+      = f.input :privacy, collection: GamingSession.privacies.keys.to_a, as: :radio_buttons
+  .row
+    .col-md-6= f.association :games
+    .col-md-6= f.association :gamers
+  
+  = f.submit

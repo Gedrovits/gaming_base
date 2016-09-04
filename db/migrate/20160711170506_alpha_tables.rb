@@ -203,7 +203,8 @@ class AlphaTables < ActiveRecord::Migration[5.0]
       t.integer :type, default: 0
       t.integer :status, default: 0
       t.integer :privacy, index: true, default: 0
-      t.tstzrange :duration
+      t.datetime :starts_at
+      t.datetime :ends_at
       t.string :description, limit: 1000
       
       t.timestamps

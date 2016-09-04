@@ -1,0 +1,30 @@
+.row
+  .col-md-4
+    %table.table
+      %tbody
+        - @gaming_session.attributes.each do |k, v|
+          %tr
+            %th= k
+            %td= v
+  .col-md-4
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Duration
+      %tbody
+        - @gaming_session.games.each do |g|
+          %tr
+            %td= g.to_label
+            %td ?
+  .col-md-4
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Status
+      %tbody
+        - @gaming_session.gamers_gaming_sessions.each do |ggs|
+          %tr
+            %td= ggs.gamer.to_label
+            %td= ggs.status

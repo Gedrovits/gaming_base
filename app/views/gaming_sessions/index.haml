@@ -1,0 +1,19 @@
+.page-header
+  %h1
+    Gaming Sessions
+    .pull-right
+      = link_to 'New', new_gaming_session_path, class: 'btn btn-primary'
+%table.table
+  %thead
+    %tr
+      %th Description
+      %th Type
+      %th Status
+      %th Privacy
+      %th Starts at
+      %th Ends at
+      %th Duration
+      %th Created at
+      %th Updated at
+  %tbody
+    = render @gaming_sessions

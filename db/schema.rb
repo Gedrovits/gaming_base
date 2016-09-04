@@ -123,13 +123,14 @@ ActiveRecord::Schema.define(version: 20160711170506) do
   end
 
   create_table "gaming_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer   "type",                     default: 0
-    t.integer   "status",                   default: 0
-    t.integer   "privacy",                  default: 0
-    t.tstzrange "duration"
-    t.string    "description", limit: 1000
-    t.datetime  "created_at",                           null: false
-    t.datetime  "updated_at",                           null: false
+    t.integer  "type",                     default: 0
+    t.integer  "status",                   default: 0
+    t.integer  "privacy",                  default: 0
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string   "description", limit: 1000
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["privacy"], name: "index_gaming_sessions_on_privacy", using: :btree
   end
 

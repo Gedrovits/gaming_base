@@ -1,7 +1,25 @@
 %h1 Home
 
 .row
-  .col-md-6
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title Gaming Sessions
+      .panel-body
+        %span.text-muted Schedule and organize play time
+      %table.table.table-bordered
+        %tbody
+          - current_gamer.gaming_sessions.each do |gs|
+            %tr
+              %td= gs.description
+              %td= gs.starts_at
+              %td= distance_of_time_in_words(gs.starts_at, gs.ends_at)
+              %td= render partial: 'shared/crud_actions', locals: { model: gs }
+          
+      .panel-footer
+        = link_to fa_icon('search', text: 'Find'), gaming_sessions_path
+        = link_to fa_icon('star', text: 'Create'), new_gaming_session_path
+  .col-md-4
     .panel.panel-default
       .panel-heading
         %h2.panel-title Team
@@ -11,7 +29,7 @@
       .panel-footer
         = link_to fa_icon('search', text: 'Find'), teams_path
         = link_to fa_icon('star', text: 'Create'), new_team_path
-  .col-md-6
+  .col-md-4
     .panel.panel-default
       .panel-heading
         %h2.panel-title Community

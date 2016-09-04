@@ -53,6 +53,9 @@ Rails.application.routes.draw do
     end
   end
   
+  # Gaming Sessions
+  resources :gaming_sessions
+  
   # API specifics
   namespace :api do
     resources :gamers, only: [:index]
