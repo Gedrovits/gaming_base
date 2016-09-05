@@ -2,7 +2,7 @@
   .col-md-4
     %table.table
       %tbody
-        - @gaming_session.attributes.each do |k, v|
+        - @event.attributes.each do |k, v|
           %tr
             %th= k
             %td= v
@@ -13,10 +13,10 @@
           %th Name
           %th Duration
       %tbody
-        - @gaming_session.games.each do |g|
+        - @event.event_games.each do |eg|
           %tr
-            %td= g.to_label
-            %td ?
+            %td= eg.game&.to_label
+            %td= distance_of_time_in_words(eg.starts_at, eg.ends_at)
   .col-md-4
     %table.table
       %thead
@@ -24,7 +24,8 @@
           %th Name
           %th Status
       %tbody
-        - @gaming_session.gamers_gaming_sessions.each do |ggs|
+        - @event.event_participation.each do |ep|
           %tr
-            %td= ggs.gamer.to_label
-            %td= ggs.status
+            %td= ep.gamer&.to_label
+            %td= ep.status
+            %td= ep.response

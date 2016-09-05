@@ -4,21 +4,23 @@
   .col-md-4
     .panel.panel-default
       .panel-heading
-        %h2.panel-title Gaming Sessions
+        %h2.panel-title Events
       .panel-body
         %span.text-muted Schedule and organize play time
       %table.table.table-bordered
         %tbody
-          - current_gamer.gaming_sessions.each do |gs|
+          - current_gamer.events.each do |e|
             %tr
-              %td= gs.description
-              %td= gs.starts_at
-              %td= distance_of_time_in_words(gs.starts_at, gs.ends_at)
-              %td= render partial: 'shared/crud_actions', locals: { model: gs }
+              %td
+                = e.name
+                = e.description
+              %td= e.starts_at
+              %td= distance_of_time_in_words(e.starts_at, e.ends_at)
+              %td= render partial: 'shared/crud_actions', locals: { model: e }
           
       .panel-footer
-        = link_to fa_icon('search', text: 'Find'), gaming_sessions_path
-        = link_to fa_icon('star', text: 'Create'), new_gaming_session_path
+        = link_to fa_icon('search', text: 'Find'), events_path
+        = link_to fa_icon('star', text: 'Create'), new_event_path
   .col-md-4
     .panel.panel-default
       .panel-heading

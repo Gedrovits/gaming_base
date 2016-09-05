@@ -53,8 +53,8 @@ Rails.application.routes.draw do
     end
   end
   
-  # Gaming Sessions
-  resources :gaming_sessions
+  # Events
+  resources :events
   
   # API specifics
   namespace :api do

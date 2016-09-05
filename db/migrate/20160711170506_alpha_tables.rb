@@ -198,30 +198,52 @@ class AlphaTables < ActiveRecord::Migration[5.0]
       t.index [:gamer_id, :language], unique: true
     end
     
-    #= GamingSessions
-    create_table :gaming_sessions, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
+    #= Event
+    create_table :events, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
+      # t.references :organizer, polymorphic: true, index: true # FIXME: Should this be gamer only?
+      t.references :gamer, type: :uuid, foreign_key: true, null: false
+  
+      t.string :name, limit: 100 # FIXME: Title?
+      t.string :description, limit: 1000
+      
+      t.datetime :starts_at, null: false
+      t.datetime :ends_at, null: false
+
       t.integer :type, default: 0
       t.integer :status, default: 0
       t.integer :privacy, index: true, default: 0
-      t.datetime :starts_at
-      t.datetime :ends_at
-      t.string :description, limit: 1000
-      
+
       t.timestamps
+      t.datetime :deleted_at
     end
     
-    create_table :games_gaming_sessions, id: false do |t|
-      t.references :game, type: :uuid, foreign_key: true, null: false
-      t.references :gaming_session, type: :uuid, foreign_key: true, null: false
-      t.index [:game_id, :gaming_session_id], unique: true
+    #= EventType
+    # generic, gaming session, meeting, mixed
+    
+    #= RecurringEvent
+    
+    #= EventGame
+    create_table :event_games, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
+      t.references :event, type: :uuid, foreign_key: true, index: true, null: false
+      t.references :game, type: :uuid, foreign_key: true, index: true, null: false
+
+      t.datetime :starts_at
+      t.datetime :ends_at
+
+      t.index [:event_id, :game_id], unique: true
     end
 
-    create_table :gamers_gaming_sessions, id: false do |t|
-      t.references :gamer, type: :uuid, foreign_key: true, null: false
-      t.references :gaming_session, type: :uuid, foreign_key: true, null: false
-      t.index [:gamer_id, :gaming_session_id], unique: true
-      
-      t.integer :status, default: 0
+    #= EventParticipant
+    create_table :event_participation, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
+      t.references :event, type: :uuid, foreign_key: true, index: true, null: false
+      t.references :gamer, type: :uuid, foreign_key: true, index: true, null: false
+
+      t.integer :status # FIXME: should it be :pending, :notification_sent, :seen, :reacted ?
+      t.string :response, limit: 100 # Something to allow user respond with reason 
+      # Accept / Tentative / Decline / Propose new time (tentative / decline)
+      # t.boolean :reminder, default: true
+
+      t.index [:event_id, :gamer_id], unique: true
     end
   end
 end

@@ -23,7 +23,10 @@ class Gamer < ApplicationRecord
   has_many :teams, through: :memberships
   has_and_belongs_to_many :games
   has_many :language_proficiencies, inverse_of: :gamer
-  has_and_belongs_to_many :gaming_sessions
+  
+  has_many :event_participation
+  has_many :events, through: :event_participation
+  has_many :organized_events, class_name: 'Event' # FIXME: Should organizer just be first participant?
   
   accepts_nested_attributes_for :language_proficiencies
   

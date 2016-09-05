@@ -1,0 +1,28 @@
+= simple_form_for @event do |f|
+  .row
+    .col-md-4
+      = f.input :name
+      = f.input :description
+    .col-md-4
+      = f.input :starts_at
+      = f.input :ends_at
+    .col-md-4
+      = f.input :type, collection: Event.types.keys.to_a, as: :radio_buttons
+  .row
+    .col-md-4
+      = f.input :status, collection: Event.statuses.keys.to_a, as: :radio_buttons
+    .col-md-4
+      = f.input :privacy, collection: Event.privacies.keys.to_a, as: :radio_buttons
+  .row
+    .col-md-6
+      = f.simple_fields_for :event_games do |eg_form|
+        = eg_form.association :game
+        = eg_form.input :starts_at
+        = eg_form.input :ends_at
+    .col-md-6
+      = f.simple_fields_for :event_participation do |ep_form|
+        = ep_form.association :gamer
+        = ep_form.input :status, collection: EventParticipation.statuses.keys.to_a, as: :radio_buttons
+        = ep_form.input :response
+  
+  = f.submit

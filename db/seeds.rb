@@ -47,7 +47,7 @@ gb_g.save
 
 league_of_legends = Game.find_by_abbreviation('LoL')
 data = YAML.load(File.read("#{data_path}/lol_communities.yml"))
-data.each do |d|
+data.take(3).each do |d|
   community = Community.new(name: d['community'][0], abbreviation: d['community'][1])
   community.description = "#{d['community'][0]} is the best community!"
   community.website = "http://www.#{d['community'][0].downcase}.#{d['community'][1].downcase}"

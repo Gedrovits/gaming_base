@@ -7,7 +7,9 @@ class Game < ApplicationRecord
   has_and_belongs_to_many :communities
   has_and_belongs_to_many :teams
   has_and_belongs_to_many :gamers
-  has_and_belongs_to_many :gaming_sessions
+  
+  has_many :event_games, inverse_of: :game
+  has_many :events, through: :event_games
   
   # Validations
   validates :name, presence: true

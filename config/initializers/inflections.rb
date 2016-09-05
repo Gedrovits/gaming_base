@@ -14,4 +14,6 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'API'
   # inflect.acronym 'RESTful'
+  
+  inflect.uncountable %w(event_participation)
 end
