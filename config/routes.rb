@@ -54,7 +54,9 @@ Rails.application.routes.draw do
   end
   
   # Events
-  resources :events
+  resources :events do
+    post :change_participation, on: :member
+  end
   
   # API specifics
   namespace :api do

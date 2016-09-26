@@ -14,14 +14,14 @@
     .col-md-4
       = f.input :privacy, collection: Event.privacies.keys.to_a, as: :radio_buttons
   .row
-    .col-md-6
+    .col-md-4
       %fieldset
         %legend Games
         = f.simple_fields_for :event_games do |eg_form|
           = render 'event_game_fields', f: eg_form
           .links
             = link_to_add_association 'add game', f, :event_games
-    .col-md-6
+    .col-md-8
       %fieldset
         %legend Participation
         = f.simple_fields_for :event_participation do |ep_form|
