@@ -81,6 +81,7 @@ gem 'omniauth-twitch'
 
 #= View Layer Stuff
 gem 'browser'
+gem 'cocoon' # Dynamic nested forms
 
 # gem 'hamlit' # https://github.com/k0kubun/hamlit
 gem 'hamlit-rails'

@@ -1,0 +1,5 @@
+.nested-fields
+  = f.association :gamer
+  = f.input :status, collection: EventParticipation.statuses.keys.to_a, as: :radio_buttons
+  = f.input :response
+  = link_to_remove_association "remove gamer", f

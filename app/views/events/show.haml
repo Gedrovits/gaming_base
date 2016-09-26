@@ -1,31 +1,47 @@
+%h1
+  = @event.name
+  %small= @event.description
+  - if @event.gamer_id == current_gamer.id
+    %small
+      .pull-right= link_to fa_icon('cogs'), edit_event_path(@event)
+
 .row
   .col-md-4
-    %table.table
-      %tbody
-        - @event.attributes.each do |k, v|
-          %tr
-            %th= k
-            %td= v
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Info
+      %table.table
+        %tbody
+          - @event.attributes.each do |k, v|
+            %tr
+              %th= k
+              %td= v
   .col-md-4
-    %table.table
-      %thead
-        %tr
-          %th Name
-          %th Duration
-      %tbody
-        - @event.event_games.each do |eg|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Gamers
+      %table.table
+        %thead
           %tr
-            %td= eg.game&.to_label
-            %td= distance_of_time_in_words(eg.starts_at, eg.ends_at)
+            %th Name
+            %th Duration
+        %tbody
+          - @event.event_games.each do |eg|
+            %tr
+              %td= eg.game&.to_label
+              %td= distance_of_time_in_words(eg.starts_at, eg.ends_at)
   .col-md-4
-    %table.table
-      %thead
-        %tr
-          %th Name
-          %th Status
-      %tbody
-        - @event.event_participation.each do |ep|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Gamers
+      %table.table
+        %thead
           %tr
-            %td= ep.gamer&.to_label
-            %td= ep.status
-            %td= ep.response
+            %th Name
+            %th Status
+        %tbody
+          - @event.event_participation.each do |ep|
+            %tr
+              %td= ep.gamer&.to_label
+              %td= ep.status
+              %td= ep.response

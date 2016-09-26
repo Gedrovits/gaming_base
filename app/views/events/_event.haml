@@ -1,4 +1,5 @@
 %tr
+  %td= event.name
   %td= event.description
   %td= event.type
   %td= event.status
@@ -6,7 +7,5 @@
   %td= event.starts_at
   %td= event.ends_at
   %td= distance_of_time_in_words(event.starts_at, event.ends_at)
-  %td= event.created_at
-  %td= event.updated_at
   %td
     = render partial: 'shared/crud_actions', locals: { model: event }

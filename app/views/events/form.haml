@@ -15,14 +15,18 @@
       = f.input :privacy, collection: Event.privacies.keys.to_a, as: :radio_buttons
   .row
     .col-md-6
-      = f.simple_fields_for :event_games do |eg_form|
-        = eg_form.association :game
-        = eg_form.input :starts_at
-        = eg_form.input :ends_at
+      %fieldset
+        %legend Games
+        = f.simple_fields_for :event_games do |eg_form|
+          = render 'event_game_fields', f: eg_form
+          .links
+            = link_to_add_association 'add game', f, :event_games
     .col-md-6
-      = f.simple_fields_for :event_participation do |ep_form|
-        = ep_form.association :gamer
-        = ep_form.input :status, collection: EventParticipation.statuses.keys.to_a, as: :radio_buttons
-        = ep_form.input :response
+      %fieldset
+        %legend Participation
+        = f.simple_fields_for :event_participation do |ep_form|
+          = render 'event_participation_fields', f: ep_form
+          .links
+            = link_to_add_association 'add gamer', f, :event_participation
   
-  = f.submit
+  = f.submit 'Save', class: 'btn btn-primary'
