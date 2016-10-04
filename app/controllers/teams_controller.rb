@@ -1,9 +1,9 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team
+    @teams = policy_scope(Team)
     @teams = @teams.where(arel[:name].matches("%#{params[:name]}%")) unless params[:name].blank?
     @teams = @teams.all
-    authorize Team
+    # authorize Team
   end
   
   def show

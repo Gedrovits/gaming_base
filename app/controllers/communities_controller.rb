@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   def index
-    @communities = Community
+    @communities = policy_scope(Community)
     @communities = @communities.where(arel[:name].matches("%#{params[:name]}%")) unless params[:name].blank?
     @communities = @communities.all
   end

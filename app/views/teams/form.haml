@@ -2,6 +2,6 @@
   = f.input :name
   = f.input :abbreviation
   = f.input :description
-  = f.input :privacy, collection: [['Public', 1], ['Private', 2], ['Invite only', 3]], include_blank: false
+  = f.input :privacy, collection: Gamer.privacies.keys.to_a, as: :radio_buttons
   = f.association :games, as: :check_boxes
   = f.submit

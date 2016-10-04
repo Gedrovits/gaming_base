@@ -1,4 +1,4 @@
-- if Rails.env.development?
+- if Rails.env.development? || Rails.env.production? # FIXME
   %ul.nav.navbar-nav.pull-right
     %li.nav-item
       = link_to 'Register', new_user_registration_path, class: 'btn btn-primary-outline'

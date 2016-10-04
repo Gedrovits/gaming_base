@@ -40,10 +40,11 @@ class ApplicationPolicy
   end
 
   class Scope
-    attr_reader :user, :scope
+    attr_reader :user, :gamer, :scope
 
     def initialize(user, scope)
       @user = user
+      @gamer = user&.gamer
       @scope = scope
     end
 

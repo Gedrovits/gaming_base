@@ -14,9 +14,16 @@ class User < ApplicationRecord
   has_many :teams, through: :gamer
   has_many :games, through: :gamer
   
+  # Callbacks
+  after_create :provision_gamer # FIXME: Make it right
+  
   # Methods
   
   def to_label
     email
+  end
+  
+  def provision_gamer
+    create_gamer(username: email)
   end
 end

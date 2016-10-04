@@ -5,6 +5,14 @@ class CommunityPolicy < ApplicationPolicy
     true
   end
   
+  def new?
+    true
+  end
+  
+  def create?
+    true
+  end
+  
   def update?
     membership&.role_id == Role.leader.id
   end

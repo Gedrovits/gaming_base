@@ -1,12 +1,18 @@
 %h3 New community
 = simple_form_for @community do |f|
-  = f.input :name
-  = f.input :abbreviation
-  = f.input :description
-  = f.input :website
-  - if current_user.is_core?
-    = f.input :verified
-  =# f.input :active
-  = f.input :privacy, collection: [['Public', 1], ['Private', 2], ['Invite only', 3]], include_blank: false
-  = f.association :games, as: :check_boxes
-  = f.submit
+  .row
+    .col-md-6
+      = f.input :name
+      = f.input :abbreviation
+      = f.input :description
+      = f.input :website
+      - if current_user.is_core?
+        = f.input :verified
+      =# f.input :active
+    .col-md-3
+      = f.input :privacy, collection: Community.privacies.keys.to_a, as: :radio_buttons
+    .col-md-3
+      = f.association :games, as: :check_boxes
+  .row
+    .col-md-12
+      = f.submit
