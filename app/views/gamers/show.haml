@@ -45,3 +45,22 @@
   .col-md-4
     %h3 Communities
     = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_communities }
+.row
+  .col-md-4
+    %h3 Language Proficiencies
+    %table.table
+      %thead
+        %tr
+          %th Language
+          %th Native
+          %th Understanding
+          %th Speaking
+          %th Writing
+      %tbody
+        - @gamer.language_proficiencies.each do |lp|
+          %tr
+            %td= lp.language
+            %td= yes_or_no(lp.native)
+            %td= lp.understanding
+            %td= lp.speaking
+            %td= lp.writing

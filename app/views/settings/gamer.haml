@@ -35,13 +35,11 @@
   .row
     %fieldset
       %legend Language Proficiencies
-      = f.simple_fields_for :language_proficiencies do |lp_form|
-        .col-md-4
-          = lp_form.input :language, collection: %w(en ru)
-          = lp_form.input :native
-          = lp_form.input :understanding, collection: LanguageProficiency.understandings.keys.to_a, as: :radio_buttons
-          = lp_form.input :speaking, collection: LanguageProficiency.speakings.keys.to_a, as: :radio_buttons
-          = lp_form.input :writing, collection: LanguageProficiency.writings.keys.to_a, as: :radio_buttons
+      #language-proficiencies
+        = f.simple_fields_for :language_proficiencies do |lp_form|
+          = render 'language_proficiency_fields', f: lp_form
+        .links
+          = link_to_add_association 'add language proficiency', f, :language_proficiencies
 
   = render 'shared/bottom_context_menu' do
     %button.btn.btn-success.navbar-btn{ type: "submit" } Save changes
