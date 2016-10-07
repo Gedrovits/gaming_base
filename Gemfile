@@ -24,6 +24,9 @@ gem 'turbolinks', '~> 5'
 
 gem 'paranoia', '~> 2.2.0.pre' # FIXME: Replace when stable one is released
 
+# Error Tracking
+gem 'sentry-raven'
+
 #= Assets Stuff
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
