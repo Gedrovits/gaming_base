@@ -16,7 +16,7 @@ require 'mina/nginx'
 
 set :domain, 'gamingbase.co'
 set :deploy_to, '/home/deployer/gamingbase'
-set :repository, 'git@gitlab.com:Gedrovits/gaming_base.git'
+set :repository, 'git@github.com:Gedrovits/gaming_base.git'
 set :branch, 'master'
 
 # set :unicorn_config, "#{deploy_to}/#{current_path}/config/unicorn.rb"

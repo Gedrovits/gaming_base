@@ -1,7 +1,0 @@
-test: &test
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-  host: postgres
-  database: gamingbase_test
-  user: postgres
