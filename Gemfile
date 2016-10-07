@@ -22,6 +22,8 @@ gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+gem 'config' # Access to Settings object
+
 gem 'paranoia', '~> 2.2.0.pre' # FIXME: Replace when stable one is released
 
 # Error Tracking
