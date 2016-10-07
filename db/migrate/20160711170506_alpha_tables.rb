@@ -42,7 +42,7 @@ class AlphaTables < ActiveRecord::Migration[5.0]
     
     #= Identity
     create_table :identities, id: :uuid, default: UUID_DB_RANDOM_METHOD do |t|
-      t.references :user, type: :uuid, foreign_key: true, index: true, null: false
+      t.references :user, type: :uuid, foreign_key: true, index: true #, null: false
       t.string :uid
       t.string :provider
       
