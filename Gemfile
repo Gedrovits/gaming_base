@@ -83,6 +83,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-twitch'
+gem 'omniauth-steam'
 
 #= View Layer Stuff
 gem 'browser'

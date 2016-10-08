@@ -8,7 +8,7 @@ module DeviseOmniauthSupport
   
     devise :database_authenticatable, :registerable, :confirmable, :recoverable,
            :rememberable, :trackable, :validatable, :lockable, :timeoutable,
-           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2, :github, :twitch]
+           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2, :github, :twitch, :steam]
     
     # FIXME: Refactor this shit
     def self.find_for_oauth(auth, signed_in_resource = nil)

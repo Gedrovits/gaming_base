@@ -17,6 +17,8 @@
         .hidden-md.hidden-lg
           = link_to omniauth_authorize_path(resource_name, :twitch), class: 'btn btn-social-icon btn-twitch' do
             = fa_icon('twitch')
+          = link_to omniauth_authorize_path(resource_name, :steam), class: 'btn btn-social-icon btn-github' do
+            = fa_icon('steam')
           = link_to omniauth_authorize_path(resource_name, :facebook), class: 'btn btn-social-icon btn-facebook' do
             = fa_icon('facebook')
           = link_to omniauth_authorize_path(resource_name, :twitter), class: 'btn btn-social-icon btn-twitter' do
@@ -28,6 +30,8 @@
         .hidden-xs.hidden-sm
           = link_to omniauth_authorize_path(resource_name, :twitch), class: 'btn btn-block btn-social btn-twitch' do
             = fa_icon('twitch', text: t('sign_in_with', provider: 'Twitch'))
+          = link_to omniauth_authorize_path(resource_name, :steam), class: 'btn btn-block btn-social btn-github' do
+            = fa_icon('steam', text: t('sign_in_with', provider: 'Steam'))
           = link_to omniauth_authorize_path(resource_name, :facebook), class: 'btn btn-block btn-social btn-facebook' do
             = fa_icon('facebook', text: t('sign_in_with', provider: 'Facebook'))
           = link_to omniauth_authorize_path(resource_name, :twitter), class: 'btn btn-block btn-social btn-twitter' do

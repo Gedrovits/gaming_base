@@ -1,5 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # [:facebook, :twitter, :google_oauth2, :github, :twitch]
+  # [:facebook, :twitter, :google_oauth2, :github, :twitch, :steam]
+  
+  skip_before_filter :verify_authenticity_token, only: :steam # FIXME: Steam sending request, which don't have auth token...
+  
   def facebook
   end
   
@@ -15,11 +18,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitch
   end
   
+  def steam
+  end
+  
   # FIXME: Refactor all the shit below
   
   def self.human_readable_provider_name(provider)
     case provider
-    when :facebook, :twitter, :twitch then provider.capitalize
+    when :facebook, :twitter, :twitch, :steam then provider.capitalize
     when :google_oauth2 then 'Google'
     when :github then 'GitHub'
     else
@@ -43,7 +49,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     }
   end
   
-  [:facebook, :twitter, :google_oauth2, :github, :twitch].each do |provider|
+  [:facebook, :twitter, :google_oauth2, :github, :twitch, :steam].each do |provider|
     provides_callback_for provider
   end
   

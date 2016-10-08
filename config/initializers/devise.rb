@@ -276,6 +276,9 @@ Devise.setup do |config|
                   Rails.application.secrets.twitch_api_key,
                   Rails.application.secrets.twitch_secret,
                   { scope: 'user_read' }
+  
+  config.omniauth :steam, 
+                  Rails.application.secrets.steam_web_api_key
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
