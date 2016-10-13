@@ -16,3 +16,12 @@
     .container
       = bootstrap_flash
       = yield
+    -#= render 'shared/bottom_context_menu' do
+    -#  %ul.nav.navbar-nav
+    -#    %li.dropdown
+    -#      %a.dropdown-toggle{ href: "#", 'data-toggle' => "dropdown" }
+    -#        Language
+    -#        %span.caret
+    -#      %ul.dropdown-menu
+    -#        - Settings.locales.each do |l|
+    -#          %li= link_to l, root_path(hl: l)

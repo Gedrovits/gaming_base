@@ -1,23 +1,13 @@
 .jumbotron
   .text-center
-    %p= t('.value_proposition.header_html')
+    %p= t('.value_proposition.header')
     %p.text-success= t('.value_proposition.description_html', heart: fa_icon('heart'))
     %p.text-primary= t('.value_proposition.optional')
 .row
   .col-md-4
     .panel.panel-success
       .panel-heading
-        %h4.panel-title= t('.features.organize.header')
-      .panel-body
-        %h6.text-muted= t('.features.organize.description')
-      %ul.list-group
-        %li.list-group-item= t('.features.organize.first')
-        %li.list-group-item= t('.features.organize.second')
-        %li.list-group-item= t('.features.organize.third')
-  .col-md-4
-    .panel.panel-info
-      .panel-heading
-        %h4.panel-title= t('.features.play.header')
+        %h4.panel-title= t('.features.play.header_html', icon: fa_icon('gamepad'))
       .panel-body
         %h6.text-muted= t('.features.play.description')
       %ul.list-group
@@ -25,12 +15,22 @@
         %li.list-group-item= t('.features.play.second')
         %li.list-group-item= t('.features.play.third')
   .col-md-4
+    .panel.panel-info
+      .panel-heading
+        %h4.panel-title= t('.features.organize.header_html', icon: fa_icon('calendar'))
+      .panel-body
+        %h6.text-muted= t('.features.organize.description')
+      %ul.list-group
+        %li.list-group-item= t('.features.organize.first')
+        %li.list-group-item= t('.features.organize.second')
+        %li.list-group-item= t('.features.organize.third')
+  .col-md-4
     .panel.panel-warning
       .panel-heading
-        %h4.panel-title= t('.features.other.header')
+        %h4.panel-title= t('.features.explore.header_html', icon: fa_icon('magic'))
       .panel-body
-        %h6.text-muted= t('.features.other.description')
+        %h6.text-muted= t('.features.explore.description')
       %ul.list-group
-        %li.list-group-item= t('.features.other.first')
-        %li.list-group-item= t('.features.other.second')
-        %li.list-group-item= t('.features.other.third')
+        %li.list-group-item= t('.features.explore.first')
+        %li.list-group-item= t('.features.explore.second')
+        %li.list-group-item= t('.features.explore.third')
