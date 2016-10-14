@@ -28,15 +28,6 @@ class GamersController < ApplicationController
     @teams       = current_gamer.teams
   end
   
-  def lets_play
-  end
-  
-  def organize
-  end
-  
-  def explore
-  end
-  
   def search
     @filters = OpenStruct.new
     # Set smart defaults from current gamer...

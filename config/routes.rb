@@ -75,9 +75,9 @@ Rails.application.routes.draw do
     end
     
     # FIXME: Play with simplified UI
-    get 'lets-play', to: 'gamers#lets_play'
-    get 'organize', to: 'gamers#organize'
-    get 'explore', to: 'gamers#explore'
+    get '/play', to: 'play#index'
+    get '/organize', to: 'organize#index'
+    get '/explore', to: 'explore#index'
     
     # TODO: Move static pages outside authenticated block
     # Static pages

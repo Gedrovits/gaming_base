@@ -2,11 +2,11 @@
   %form.navbar-form.navbar-left
     .form-group
       %input.form-control{ type: 'text', placeholder: t('private_menu.search_placeholder') }
-  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'lets_play' ? "active" : '' }
-    = link_to fa_icon('star', text: t('private_menu.lets_play')), lets_play_path, class: 'nav-link'
-  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'organize' ? "active" : '' }
+  %li.nav-item{ class: controller_name == 'play' && action_name == 'index' ? "active" : '' }
+    = link_to fa_icon('gamepad', text: t('private_menu.play')), play_path, class: 'nav-link'
+  %li.nav-item{ class: controller_name == 'organize' && action_name == 'index' ? "active" : '' }
     = link_to fa_icon('calendar', text: t('private_menu.organize')), organize_path, class: 'nav-link'
-  %li.nav-item{ class: controller_name == 'gamers' && action_name == 'explore' ? "active" : '' }
+  %li.nav-item{ class: controller_name == 'explore' && action_name == 'index' ? "active" : '' }
     = link_to fa_icon('magic', text: t('private_menu.explore')), explore_path, class: 'nav-link'
 %ul.nav.navbar-nav.pull-right
   - if session[:became_user] && session[:superuser_id]

@@ -1,0 +1,15 @@
+%ol.breadcrumb
+  %li= link_to "Home", root_path
+  %li.active Play
+
+%h1= fa_icon('gamepad', text: "Play")
+
+I want to play
+= select_tag(:game, options_from_collection_for_select(Game.all, :id, :to_label))
+on
+= date_select(:play, :date)
+with
+= select_tag(:number, options_for_select(1..10))
+= select_tag(:gamer_dedication, options_from_collection_for_select(Gamer.dedications, :last, :first))
+gamer(s)
+= button_tag fa_icon('search', text: 'Search')
