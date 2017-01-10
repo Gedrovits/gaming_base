@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.0'
 
 #= High-level Performance Stuff
 gem 'mime-types', '~> 3.1', require: 'mime/types/columnar'
@@ -14,13 +14,15 @@ gem 'oj'
 gem 'oj_mimic_json'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0.1'
+gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+gem 'json', '~> 2.0'
 
 gem 'config' # Access to Settings object
 
@@ -92,7 +94,7 @@ gem 'cocoon' # Dynamic nested forms
 # gem 'hamlit' # https://github.com/k0kubun/hamlit
 gem 'hamlit-rails'
 
-gem 'gon'
+# gem 'gon'
 # gem 'ejs'
 
 # gem 'haml-rails'
