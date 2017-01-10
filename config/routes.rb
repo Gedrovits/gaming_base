@@ -98,6 +98,12 @@ Rails.application.routes.draw do
     match '/become_self', to: 'users#become_self', as: :become_self, via: [:get, :post]
     # TODO: THIS MUST BE CORRECTLY SECURED!!!
   end
+
+  # Only for Core
+  authenticate :user, lambda { |u| u.is_core? } do
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+  end
   
   root 'pages#homepage'
 end

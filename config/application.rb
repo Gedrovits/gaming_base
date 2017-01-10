@@ -22,6 +22,8 @@ module GamingBase
 
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } # FIXME
 
+    config.active_job.queue_adapter = :sidekiq
+
     # Generate only what required
     config.generators do |g|
       g.helper = false

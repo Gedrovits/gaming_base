@@ -68,7 +68,7 @@ gem 'http_accept_language' # https://github.com/iain/http_accept_language
 gem 'i18n-js', '>= 3.0.0.rc11'
 
 #= Jobs processing
-# gem 'sidekiq'
+gem 'sidekiq', '~> 4.2'
 
 #= Authentication
 gem 'devise'
@@ -152,9 +152,9 @@ group :development do
   # gem 'annotate' #, '>= 2', '< 3'
 
   # Deploy
-  gem 'mina' # http://mina-deploy.github.io/mina/
-  gem 'mina-puma', require: false
-  gem 'mina-nginx', require: false
+  # gem 'mina' # http://mina-deploy.github.io/mina/
+  # gem 'mina-puma', require: false
+  # gem 'mina-nginx', require: false
   # gem 'mina-stack', github: 'div/mina-stack'
   # gem 'mina-sidekiq', require: false
 end
