@@ -70,6 +70,9 @@ gem 'i18n-js', '>= 3.0.0.rc11'
 #= Jobs processing
 gem 'sidekiq', '~> 4.2'
 
+#= Monitoring
+gem 'librato-rails'
+
 #= Authentication
 gem 'devise'
 # gem 'devise_uid'
