@@ -72,7 +72,9 @@ gem 'premailer-rails'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'devise-i18n', '~> 1.x'
 
-gem 'i18n-tasks' # https://github.com/glebm/i18n-tasks # FIXME: Should be in development only
+# FIXME: Throws warning because of parser dependency & should be in development only
+gem 'i18n-tasks', '< 2' # https://github.com/glebm/i18n-tasks
+
 gem 'http_accept_language', '~> 2.x', '< 3' # https://github.com/iain/http_accept_language
 
 gem 'i18n-js', '~> 3.x', '< 4'

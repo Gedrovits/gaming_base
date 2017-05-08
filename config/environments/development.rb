@@ -18,7 +18,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -31,6 +31,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # FIXME: Move into initializers or other "custom" storage?
   config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.

@@ -398,7 +398,7 @@ DEPENDENCIES
   hamlit-rails
   http_accept_language (~> 2.x, < 3)
   i18n-js (~> 3.x, < 4)
-  i18n-tasks
+  i18n-tasks (< 2)
   jquery-rails (~> 4.x, < 5)
   json (~> 2.0)
   kaminari (~> 1.x)
