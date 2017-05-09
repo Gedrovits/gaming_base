@@ -78,9 +78,6 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     browser (2.3.0)
     builder (3.2.3)
     byebug (9.0.6)
@@ -115,8 +112,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     fast_blank (1.0.0)
     ffi (1.9.18)
-    font-awesome-rails (4.7.0.2)
-      railties (>= 3.2, < 5.2)
     friendly_id (5.2.1)
       activerecord (>= 4.0.0)
     globalid (0.4.0)
@@ -383,7 +378,6 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.x, < 4)
   browser (~> 2.x)
   byebug
   cocoon
@@ -393,7 +387,6 @@ DEPENDENCIES
   devise-i18n (~> 1.x)
   factory_girl_rails (~> 4.x, < 5)
   fast_blank (~> 1.x, < 2)
-  font-awesome-rails (~> 4.x, < 5)
   friendly_id (~> 5.x, < 6)
   hamlit-rails
   http_accept_language (~> 2.x, < 3)

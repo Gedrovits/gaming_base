@@ -71,9 +71,7 @@ gem 'premailer-rails'
 #= I18n Stuff
 gem 'rails-i18n', '~> 5.0.0'
 gem 'devise-i18n', '~> 1.x'
-
-# FIXME: Throws warning because of parser dependency & should be in development only
-gem 'i18n-tasks', '< 2' # https://github.com/glebm/i18n-tasks
+gem 'i18n-tasks', '< 2', require: false # https://github.com/glebm/i18n-tasks
 
 gem 'http_accept_language', '~> 2.x', '< 3' # https://github.com/iain/http_accept_language
 
@@ -110,14 +108,8 @@ gem 'hamlit-rails'
 # gem 'gon'
 # gem 'ejs'
 
-gem 'font-awesome-rails', '~> 4.x', '< 5'
-gem 'bootstrap-sass', '~> 3.x', '< 4'
 gem 'simple_form', github: 'christiannelson/simple_form', branch: 'rails-5.1' # FIXME: Deprecate usage of it
 gem 'kaminari', '~> 1.x'
-
-# source 'https://rails-assets.org' do
-#   gem 'rails-assets-semantic'
-# end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

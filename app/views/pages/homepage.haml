@@ -7,7 +7,9 @@
   .col-md-4
     .panel.panel-success
       .panel-heading
-        %h4.panel-title= t('.features.play.header_html', icon: fa_icon('gamepad'))
+        %h4.panel-title
+          = t('.features.play.header_html', icon: fa_icon('gamepad'))
+          %sup alpha
       .panel-body
         %h6.text-muted= t('.features.play.description')
       %ul.list-group
@@ -17,7 +19,9 @@
   .col-md-4
     .panel.panel-info
       .panel-heading
-        %h4.panel-title= t('.features.organize.header_html', icon: fa_icon('calendar'))
+        %h4.panel-title
+          = t('.features.organize.header_html', icon: fa_icon('calendar'))
+          %sup soon
       .panel-body
         %h6.text-muted= t('.features.organize.description')
       %ul.list-group
@@ -27,7 +31,9 @@
   .col-md-4
     .panel.panel-warning
       .panel-heading
-        %h4.panel-title= t('.features.explore.header_html', icon: fa_icon('magic'))
+        %h4.panel-title
+          = t('.features.explore.header_html', icon: fa_icon('magic'))
+          %sup soon
       .panel-body
         %h6.text-muted= t('.features.explore.description')
       %ul.list-group

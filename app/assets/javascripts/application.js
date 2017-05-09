@@ -10,10 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// FIXME: Move jQuery as external dependency, if still needed
-//= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require turbolinks
 //= require cocoon
 // require_tree .
