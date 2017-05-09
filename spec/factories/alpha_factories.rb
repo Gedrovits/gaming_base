@@ -19,7 +19,7 @@ FactoryGirl.define do
   end
 
   factory :gamer do
-    user_id               { SecureRandom.uuid }
+    association(:user)
     username              ''
     description           ''
     slug                  ''
@@ -40,7 +40,7 @@ FactoryGirl.define do
   end
 
   factory :identity do
-    user_id { SecureRandom.uuid }
+    association(:user)
     sequence(:uid) { |n| "UID-#{n}" }
     sequence(:provider) { |n| "P-#{n}" }
   end

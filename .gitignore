@@ -13,11 +13,15 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
+/node_modules
+/yarn-error.log
+
 .byebug_history
+
 .idea/
 coverage/
 
+# Config gem ignores
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
