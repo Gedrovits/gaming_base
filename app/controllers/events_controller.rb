@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
+    @events = @events.decorate
   end
   
   def show
     @event = Event.find(params[:id])
     authorize @event
+    @event = @event.decorate
   end
   
   def new

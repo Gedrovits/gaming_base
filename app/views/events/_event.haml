@@ -3,9 +3,9 @@
   %td= event.description
   %td= event.type
   %td= event.status
-  %td= privacy_label(event.privacy)
+  %td= event.privacy_label
   %td= event.starts_at
   %td= event.ends_at
-  %td= distance_of_time_in_words(event.starts_at, event.ends_at)
+  %td= distance_of_time_in_words(event.starts_at, event.ends_at) # FIXME: Decorate
   %td
     = render partial: 'shared/crud_actions', locals: { model: event }
