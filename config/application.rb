@@ -31,7 +31,7 @@ module GamingBase
     config.generators do |g|
       g.helper = false
       g.assets = false
-      g.test_framework = false # FIXME: Revert when testing is required
+      g.test_framework = :rspec
     end
   end
 end

@@ -5,6 +5,7 @@ class GamersController < ApplicationController
   
   def show
     @gamer = Gamer.friendly.find(params[:id])
+    @gamer = @gamer.decorate
   end
   
   def edit
