@@ -6,6 +6,9 @@ class GamersController < ApplicationController
   def show
     @gamer = Gamer.friendly.find(params[:id])
     @gamer = @gamer.decorate
+    # TODO: Filter by visibility
+    @team_memberships = @gamer.memberships.for_teams.decorate
+    @community_memberships = @gamer.memberships.for_communities.decorate
   end
   
   def edit

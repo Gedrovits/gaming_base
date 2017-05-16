@@ -10,16 +10,52 @@
     .panel.panel-default
       .panel-heading
         %h3.panel-title Info
-      %table.table
+      %table.table.table-bordered
         %tbody
-          - @event.attributes.each do |k, v|
-            %tr
-              %th= k
-              %td= v
-  .col-md-4
+          -#%tr
+          -#  %th Name
+          -#  %td= @event.name
+          -#- if @event.description.present?
+          -#  %tr
+          -#    %th Description
+          -#    %td= @event.description
+          %tr
+            %th Type
+            %td= @event.type_label
+          %tr
+            %th Duration
+            %td= @event.duration_label
+          %tr
+            %th Status
+            %td= @event.status_label
+          %tr
+            %th Privacy
+            %td= @event.privacy_label
+  .col-md-8
     .panel.panel-default
       .panel-heading
         %h3.panel-title Gamers
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Name
+            %th Status
+            -#%th Response
+            %th
+        %tbody
+          - @event.event_participation.decorate.each do |ep|
+            %tr
+              %td= ep.gamer&.to_label
+              %td= ep.status_label
+              -#%td= ep.response
+              %td
+                - if ep.gamer_id == current_gamer.id
+                  = render 'current_participation', ep: ep
+.row
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Games
       %table.table
         %thead
           %tr
@@ -30,33 +66,3 @@
             %tr
               %td= eg.game&.to_label
               %td= distance_of_time_in_words(eg.starts_at, eg.ends_at)
-  .col-md-4
-    .panel.panel-default
-      .panel-heading
-        %h3.panel-title Gamers
-      %table.table
-        %thead
-          %tr
-            %th Name
-            %th Status
-        %tbody
-          - @event.event_participation.each do |ep|
-            %tr
-              %td= ep.gamer&.to_label
-              %td= ep.status
-              %td= ep.response
-              %td
-                - if ep.gamer_id == current_gamer.id
-                  .btn-group-sm
-                    = link_to fa_icon('hourglass', text: 'Pending'), 
-                    change_participation_event_path(ep, event_participation: { status: :pending }), 
-                    method: :post, class: 'btn btn-default' unless ep.status == 'pending'
-                    = link_to fa_icon('check', text: 'Accepted'), 
-                    change_participation_event_path(ep, event_participation: { status: :accepted }), 
-                    method: :post, class: 'btn btn-success' unless ep.status == 'accepted'
-                    = link_to fa_icon('exchange', text: 'Tentative'), 
-                    change_participation_event_path(ep, event_participation: { status: :tentative }), 
-                    method: :post, class: 'btn btn-warning' unless ep.status == 'tentative'
-                    = link_to fa_icon('remove', text: 'Declined'), 
-                    change_participation_event_path(ep, event_participation: { status: :declined }), 
-                    method: :post, class: 'btn btn-danger' unless ep.status == 'declined'

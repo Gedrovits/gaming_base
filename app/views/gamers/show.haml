@@ -41,10 +41,10 @@
           %td= @gamer.sex_label
   .col-md-4
     %h3 Teams
-    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_teams }
+    = render partial: 'memberships/summary_table', locals: { memberships: @team_memberships }
   .col-md-4
     %h3 Communities
-    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_communities }
+    = render partial: 'memberships/summary_table', locals: { memberships: @community_memberships }
 .row
   .col-md-4
     %h3 Language Proficiencies
