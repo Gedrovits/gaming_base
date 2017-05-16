@@ -13,7 +13,7 @@ class ApplicationDecorator < Draper::Decorator
            when :team_only then ['eye', 'Only Team', 'warning']
            when :community_only then ['eye', 'Only Community', 'warning']
            when :team_or_community_only then ['eye', 'Only Team / Community', 'warning']
-           when :everyone then ['eye', 'Everyone', 'success']
+           when :anyone then ['eye', 'Everyone', 'success']
            else
              []
            end

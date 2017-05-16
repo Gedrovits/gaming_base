@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def membership_status_label(m, css = '')
-    case m.status.to_sym
-    when :pending  then content_tag(:span, m.status, class: ['label label-warning', css].join(' '))
-    when :left, :banned then content_tag(:span, m.status, class: ['label label-danger', css].join(' '))
-    when :approved then content_tag(:span, m.status, class: ['label label-success', css].join(' '))
-    end
-  end
-  
   def safe_external_link(url)
     link_to(fa_icon('external-link', text: url), url,
             data: { confirm: 'This leads to external website...' },
