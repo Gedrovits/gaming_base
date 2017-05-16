@@ -1,0 +1,14 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Role
+      %th Status
+      %th
+  %tbody
+    - @team_memberships.each do |m|
+      %tr
+        %td= m.team.to_label
+        %td= m.role&.to_label
+        %td= m.status_label
+        %td= render partial: 'shared/crud_actions', locals: { model: m.team }

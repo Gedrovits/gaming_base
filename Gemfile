@@ -38,6 +38,9 @@ gem 'config', '~> 1.x' # Access to Settings object
 
 gem 'paranoia', '~> 2.x', '< 3'
 
+#= Abstraction
+gem 'draper', '~> 3.x', '< 4'
+
 # Error Tracking
 gem 'sentry-raven', '~> 2.x', '< 3'
 

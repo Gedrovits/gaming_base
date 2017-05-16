@@ -1,0 +1,13 @@
+.btn-group-sm
+  = link_to fa_icon('hourglass', text: 'Pending'),
+                  change_participation_event_path(ep, event_participation: { status: :pending }),
+                  method: :post, class: 'btn btn-default' unless ep.status == 'pending'
+  = link_to fa_icon('check', text: 'Accepted'),
+                  change_participation_event_path(ep, event_participation: { status: :accepted }),
+                  method: :post, class: 'btn btn-success' unless ep.status == 'accepted'
+  = link_to fa_icon('exchange', text: 'Tentative'),
+                  change_participation_event_path(ep, event_participation: { status: :tentative }),
+                  method: :post, class: 'btn btn-warning' unless ep.status == 'tentative'
+  = link_to fa_icon('remove', text: 'Declined'),
+                  change_participation_event_path(ep, event_participation: { status: :declined }),
+                  method: :post, class: 'btn btn-danger' unless ep.status == 'declined'

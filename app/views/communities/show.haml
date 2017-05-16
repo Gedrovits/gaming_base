@@ -15,55 +15,15 @@
     %a{ href: '#games', role: 'tab', data: { toggle: 'tab' } } Games  
 .tab-content
   #gamers.tab-pane.active{ role: 'tabpanel' }
-    - gamer_memberships = @community.memberships.for_gamers
-    - if gamer_memberships.blank?
+    - if @gamer_memberships.blank?
       %h4 No memberships...
     - else
-      %table.table.table-bordered
-        %thead
-          %tr
-            %th Name
-            %th Role
-            %th Status
-            %th
-        %tbody
-          - @community.memberships.for_gamers.order(:role_id).each do |m|
-            %tr
-              %td= m.gamer.username
-              %td
-                = m.role.to_label
-                - if current_membership&.role&.name == 'Founder' && @community.memberships.count > 1
-                  .btn-group
-                    %button.btn.btn-default.dropdown-toggle{ data: { toggle: 'dropdown' } }
-                      = fa_icon('edit', text: 'Change')
-                      %span.caret
-                    %ul.dropdown-menu
-                      - Role.all.each do |role|
-                        - next if role.id == m.role_id
-                        %li= link_to role.to_label, change_role_membership_path(m, role_id: role.id), class: 'dropdown-item' 
-              %td= membership_status_label(m)
-              %td
-                - if current_membership&.role&.name == 'Founder' && @community.memberships.count > 1
-                  = render 'memberships/manage', membership: m
-                - if current_user.is_core?  
-                  = render partial: 'shared/crud_actions', locals: { model: m.gamer }
+      = render 'gamer_memberships'
   #teams.tab-pane{ role: 'tabpanel' }
-    - team_memberships = @community.memberships.for_teams
-    - if team_memberships.blank?
+    - if @team_memberships.blank?
       %h4 No memberships...
     - else
-      %table.table.table-bordered
-        %thead
-          %tr
-            %th Name
-            %th Role
-            %th
-        %tbody
-          - team_memberships.each do |m|
-            %tr
-              %td= m.team.to_label
-              %td= m.role&.to_label
-              %td= render partial: 'shared/crud_actions', locals: { model: m.team }
+      = render 'team_memberships'
   #games.tab-pane{ role: 'tabpanel' }
     %table.table
       %tbody

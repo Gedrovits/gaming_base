@@ -9,6 +9,8 @@ class TeamsController < ApplicationController
   def show
     @team = Team.friendly.find(params[:id])
     authorize @team
+    @gamer_memberships = @team.memberships.for_gamers.includes(:role).order(:role_id).decorate
+    @community_memberships = @team.memberships.for_communities.includes(:role).order(:role_id).decorate
   end
   
   def new

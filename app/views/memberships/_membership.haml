@@ -4,9 +4,9 @@
   %td= link_to(membership.gamer&.to_label, membership.gamer) if membership.gamer
   %td= link_to(membership.role&.to_label, membership.role) if membership.role
   %td= membership.type
-  %td= membership.active
-  %td= membership.privacy
-  %td= membership_status_label(membership)
+  %td= yes_or_no membership.active
+  %td= membership.privacy_label
+  %td= membership.status_label
   %td= membership.created_at
   %td= membership.updated_at
   %td

@@ -1,0 +1,20 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Role
+      %th Status
+      %th
+  %tbody
+    - @gamer_memberships.each do |m|
+      %tr
+        %td
+          = m.gamer.username
+          - if m.gamer.username == current_gamer.username
+            %span.label.label-default You
+        %td= m.role.to_label
+        %td= m.status_label
+        %td
+          - if policy(@team).manage_memberships?
+            = render 'memberships/manage', membership: m
+          = render partial: 'shared/crud_actions', locals: { model: m.gamer }
