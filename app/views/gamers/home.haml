@@ -9,7 +9,7 @@
         %span.text-muted Schedule and organize play time
       %table.table.table-bordered
         %tbody
-          - current_gamer.events.each do |e|
+          - @events.each do |e|
             %tr
               %td
                 = e.name
@@ -17,7 +17,6 @@
               %td= e.starts_at
               %td= distance_of_time_in_words(e.starts_at, e.ends_at)
               %td= render partial: 'shared/crud_actions', locals: { model: e }
-          
       .panel-footer
         = link_to fa_icon('search', text: 'Find'), events_path
         = link_to fa_icon('star', text: 'Create'), new_event_path
@@ -27,7 +26,7 @@
         %h2.panel-title Team
       .panel-body
         %span.text-muted Perfect for middle-sized group of players
-      = render partial: 'memberships/summary_table', locals: { memberships: current_gamer.memberships.for_teams }
+      = render partial: 'memberships/summary_table', locals: { memberships: @team_memberships }
       .panel-footer
         = link_to fa_icon('search', text: 'Find'), teams_path
         = link_to fa_icon('star', text: 'Create'), new_team_path
@@ -37,7 +36,7 @@
         %h2.panel-title Community
       .panel-body
         %span.text-muted Multi-gaming and professional organizations
-      = render partial: 'memberships/summary_table', locals: { memberships: current_gamer.memberships.for_communities }
+      = render partial: 'memberships/summary_table', locals: { memberships: @community_memberships }
       .panel-footer
         = link_to fa_icon('search', text: 'Find'), communities_path
         = link_to fa_icon('star', text: 'Create'), new_community_path

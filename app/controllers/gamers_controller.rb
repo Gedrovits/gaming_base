@@ -25,8 +25,9 @@ class GamersController < ApplicationController
   end
   
   def home
-    @communities = current_gamer.communities
-    @teams       = current_gamer.teams
+    @events = current_gamer.events
+    @team_memberships = current_gamer.memberships.for_teams.decorate
+    @community_memberships = current_gamer.memberships.for_communities.decorate
   end
   
   def search

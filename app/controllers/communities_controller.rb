@@ -7,6 +7,9 @@ class CommunitiesController < ApplicationController
   
   def show
     @community = Community.friendly.find(params[:id])
+    authorize @community
+    @gamer_memberships = @community.memberships.for_gamers.includes(:role).order(:role_id).decorate
+    @team_memberships = @community.memberships.for_teams.includes(:role).order(:role_id).decorate
   end
   
   def new

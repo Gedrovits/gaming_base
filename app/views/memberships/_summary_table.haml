@@ -7,5 +7,5 @@
         %td
           %strong= team_or_community_label(target)
         %td= m.role.to_label
-        %td= m.status
+        %td= m.status_label
         %td= render partial: 'shared/crud_actions', locals: { model: target }
