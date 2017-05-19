@@ -24,10 +24,10 @@
         = f.submit "Let's roll!", class: 'btn btn-primary'
         = link_to 'Clear filters', search_gamers_path, class: 'btn btn-secondary'
   #results
-    %h3 Gamers found:
     - if @gamers.blank?
-      Nothing found.
+      %h3 Nothing found.
     - else
+      %h3= page_entries_info @gamers
       = paginate @gamers
       %table.table
         %tbody

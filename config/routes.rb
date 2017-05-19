@@ -76,6 +76,8 @@ Rails.application.routes.draw do
     
     # FIXME: Play with simplified UI
     get '/play', to: 'play#index'
+    match :play_results, via: [:get, :post], to: 'play#results'
+
     get '/organize', to: 'organize#index'
     get '/explore', to: 'explore#index'
     
