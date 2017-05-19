@@ -15,7 +15,7 @@ gem 'fast_blank', '~> 1.x', '< 2'
 # gem 'xorcist' # https://github.com/fny/xorcist
 # gem 'fast_xs'
 # gem 'escape_utils' # https://github.com/brianmario/escape_utils
-gem 'oj', '~> 2.x', '< 3'
+gem 'oj', '~> 3.x'
 gem 'oj_mimic_json', '~> 1.x', '< 2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,7 +48,7 @@ gem 'sentry-raven', '~> 2.x', '< 3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 3.x', '< 4' #'>= 1.3.0'
+gem 'uglifier', '~> 3.x', '< 4'
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -57,7 +57,7 @@ gem 'uglifier', '~> 3.x', '< 4' #'>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 4.x', '< 5'
 gem 'sprockets-es6'
-gem 'autoprefixer-rails', '~> 6.x', '< 7'
+gem 'autoprefixer-rails', '~> 7.x'
 
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.x', '< 4'
@@ -120,7 +120,7 @@ group :development, :test do
   gem 'parallel_tests', '~> 2.x', '< 3'
   
   gem 'rspec-rails', '~> 3.x', '< 4'
-  gem 'shoulda-matchers', '>= 2.8', '< 3'
+  gem 'shoulda-matchers', '~> 3.x'
   gem 'factory_girl_rails', '~> 4.x', '< 5'
   # gem 'database_cleaner', '>= 1.5', '< 2'
   gem 'database_rewinder', '< 2'
@@ -134,7 +134,7 @@ group :development do
   gem 'web-console'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.x', '< 2'
+  gem 'spring', '~> 2.x'
   gem 'spring-watcher-listen', '~> 2.0.0'
   
   gem 'letter_opener', '~> 1.4'
@@ -164,6 +164,8 @@ group :development do
   # gem 'mina-nginx', require: false
   # gem 'mina-stack', github: 'div/mina-stack'
   # gem 'mina-sidekiq', require: false
+
+  gem 'bundleup', '~> 0.x'
 end
 
 group :test do
