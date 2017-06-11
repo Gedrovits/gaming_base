@@ -1,0 +1,2 @@
+$('#gamers').html('<%= j render(@gamers) %>');
+$('#pagination').html('<%= j page_entries_info(@gamers) + paginate(@gamers, remote: true) %>');
