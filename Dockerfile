@@ -11,3 +11,5 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --binstubs -j 20
 
 COPY . .
+
+CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0", "-p", "3000"]

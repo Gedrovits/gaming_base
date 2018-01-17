@@ -1,24 +1,49 @@
-version: "3"
+version: "3.1"
+
+networks:
+  public:
+  private:
 
 services:
   web:
     build: .
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec rails s -b 0.0.0.0 -p 3000
     volumes:
       - .:/app
+    networks:
+      - public
+      - private
     ports:
       - "3000:3000"
     depends_on:
       - postgres
       - redis
     environment:
-      DATABASE_URL: postgres://gaming_base@postgres/gaming_base_dev
+      DATABASE_URL: postgres://gaming_base:gaming_base@postgres/gaming_base_dev
+      REDIS_URL: redis://redis
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq -q default -q mailers
+    volumes:
+      - .:/app
+    networks:
+      - private
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://gaming_base:gaming_base@postgres/gaming_base_dev
+      REDIS_URL: redis://redis
 
   postgres:
     image: 'postgres:9.6-alpine'
     environment:
       POSTGRES_USER: 'gaming_base'
+      POSTGRES_PASSWORD: 'gaming_base'
       POSTGRES_DB: 'gaming_base_dev'
+    networks:
+      - private
     ports:
       - '5432:5432'
     volumes:
@@ -26,7 +51,11 @@ services:
 
   redis:
     image: 'redis:3.2-alpine'
-    command: redis-server --requirepass gaming_base
+    sysctls:
+      - "net.core.somaxconn=1024"
+    command: redis-server --appendonly yes
+    networks:
+      - private
     ports:
       - '6379:6379'
     volumes:
