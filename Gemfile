@@ -21,6 +21,8 @@ gem 'oj_mimic_json' #, '~> 1.x', '< 2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.3' #, '>= 5.1', '< 6'
 
+gem 'rack-cors'
+
 # Additional Caching
 # gem 'actionpack-page_caching' # caches_page in controller
 # gem 'actionpack-action_caching' # caches_action in controller
@@ -84,7 +86,7 @@ gem 'i18n-js' #, '~> 3.x', '< 4'
 gem 'sidekiq' #, '~> 5.x', '< 6'
 
 #= Monitoring
-gem 'librato-rails'
+# gem 'librato-rails'
 
 #= Authentication
 gem 'devise' #, github: 'plataformatec/devise', branch: 'master' # FIXME: Replace when it will be on RubyGems
