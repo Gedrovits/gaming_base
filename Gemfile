@@ -83,6 +83,9 @@ gem 'i18n-js' #, '~> 3.x', '< 4'
 #= Jobs processing
 gem 'sidekiq' #, '~> 5.x', '< 6'
 
+#= Monitoring
+gem 'librato-rails'
+
 #= Authentication
 gem 'devise' #, github: 'plataformatec/devise', branch: 'master' # FIXME: Replace when it will be on RubyGems
 # gem 'devise_uid'
