@@ -11,48 +11,15 @@
     %a{ href: '#games', role: 'tab', data: { toggle: 'tab' } } Games  
 .tab-content
   #gamers.tab-pane.active{ role: 'tabpanel' }
-    - gamer_memberships = @team.memberships.for_gamers
-    - if gamer_memberships.blank?
+    - if @gamer_memberships.blank?
       %h4 No memberships...
     - else
-      %table.table.table-bordered
-        %thead
-          %tr
-            %th Name
-            %th Role
-            %th Status
-            %th
-        %tbody
-          - gamer_memberships.includes(:role).order(:role_id).each do |m|
-            %tr
-              %td
-                = m.gamer.username
-                - if m.gamer.username == current_gamer.username
-                  %span.label.label-default You
-              %td
-                = m.role.to_label
-              %td= membership_status_label(m)
-              %td
-                - if policy(@team).manage_memberships?
-                  = render 'memberships/manage', membership: m
-                = render partial: 'shared/crud_actions', locals: { model: m.gamer }
+      = render 'gamer_memberships'
   #communities.tab-pane{ role: 'tabpanel' }
-    - community_memberships = @team.memberships.for_communities
-    - if community_memberships.blank?
+    - if @community_memberships.blank?
       %h4 No memberships...
     - else
-      %table.table.table-bordered
-        %thead
-          %tr
-            %th Name
-            %th Role
-            %th
-        %tbody
-          - community_memberships.each do |m|
-            %tr
-              %td= m.community.to_label
-              %td= m.role&.to_label
-              %td= render partial: 'shared/crud_actions', locals: { model: m.community }
+      = render 'community_memberships'
   #games.tab-pane{ role: 'tabpanel' }
     %table.table
       %tbody

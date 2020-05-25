@@ -1,7 +1,7 @@
 class MembershipsController < ApplicationController
   def index
-    @memberships = Membership.all
-    authorize Membership
+    @memberships = Membership.all.decorate
+    # authorize Membership
   end
   
   def show

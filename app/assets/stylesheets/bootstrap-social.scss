@@ -88,9 +88,8 @@
 
 @mixin btn-social($color-bg, $color: #fff) {
   background-color: $color-bg;
-  @include button-variant($color, $color-bg, rgba(0,0,0,.2));
+  //@include button-variant($color, $color-bg, rgba(0,0,0,.2));
 }
-
 
 .btn-adn           { @include btn-social(#d87a68); }
 .btn-bitbucket     { @include btn-social(#205081); }

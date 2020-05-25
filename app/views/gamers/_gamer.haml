@@ -6,7 +6,5 @@
   %td= gamer.last_name
   %td= gamer.birth_date
   %td= verified_badge(gamer.verified?)
-  %td= gamer.created_at
-  %td= gamer.updated_at
   %td
     = render partial: 'shared/crud_actions', locals: { model: gamer }

@@ -17,34 +17,34 @@
       %tbody
         %tr
           %th Dedication
-          %td= dedication_label(@gamer.dedication)
+          %td= @gamer.dedication_label
         %tr
           %th Weekday Availability
-          %td= weekday_weekend_availability_label(@gamer.weekday_availability)
+          %td= @gamer.weekday_availability_label
         %tr
           %th Weekend Availability
-          %td= weekday_weekend_availability_label(@gamer.weekend_availability)
+          %td= @gamer.weekend_availability_label
         %tr
           %th Swearing
-          %td= swearing_and_tolerance_label(@gamer.swearing)
+          %td= @gamer.swearing_label
         %tr
           %th Swearing Tolerance
-          %td= swearing_and_tolerance_label(@gamer.swearing_tolerance)    
+          %td= @gamer.swearing_tolerance_label
         %tr
           %th Privacy
-          %td= privacy_label(@gamer.privacy)
+          %td= @gamer.privacy_label
         %tr
           %th Age
           %td= @gamer.age
         %tr
           %th Sex
-          %td= sex_label(@gamer.sex)
+          %td= @gamer.sex_label
   .col-md-4
     %h3 Teams
-    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_teams }
+    = render partial: 'memberships/summary_table', locals: { memberships: @team_memberships }
   .col-md-4
     %h3 Communities
-    = render partial: 'memberships/summary_table', locals: { memberships: @gamer.memberships.for_communities }
+    = render partial: 'memberships/summary_table', locals: { memberships: @community_memberships }
 .row
   .col-md-4
     %h3 Language Proficiencies

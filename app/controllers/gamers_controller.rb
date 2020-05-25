@@ -5,6 +5,10 @@ class GamersController < ApplicationController
   
   def show
     @gamer = Gamer.friendly.find(params[:id])
+    @gamer = @gamer.decorate
+    # TODO: Filter by visibility
+    @team_memberships = @gamer.memberships.for_teams.decorate
+    @community_memberships = @gamer.memberships.for_communities.decorate
   end
   
   def edit
@@ -24,8 +28,9 @@ class GamersController < ApplicationController
   end
   
   def home
-    @communities = current_gamer.communities
-    @teams       = current_gamer.teams
+    @events = current_gamer.events
+    @team_memberships = current_gamer.memberships.for_teams.decorate
+    @community_memberships = current_gamer.memberships.for_communities.decorate
   end
   
   def search

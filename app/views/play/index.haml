@@ -2,14 +2,37 @@
   %li= link_to "Home", root_path
   %li.active Play
 
-%h1= fa_icon('gamepad', text: "Play")
+-#%h1= fa_icon('gamepad', text: "Play")
 
-I want to play
-= select_tag(:game, options_from_collection_for_select(Game.all, :id, :to_label))
-on
-= date_select(:play, :date)
-with
-= select_tag(:number, options_for_select(1..10))
-= select_tag(:gamer_dedication, options_from_collection_for_select(Gamer.dedications, :last, :first))
-gamer(s)
-= button_tag fa_icon('search', text: 'Search')
+-#= simple_form_for @filters, as: :filters, url: play_results_path, remote: true do |f|
+-#  = f.input :games, collection: Game.all, as: :check_boxes, checked: @filters.games
+-#  = f.submit "Let's roll!", class: 'btn btn-primary'
+
+= form_with(url: play_results_path, local: false) do |f|
+  %center
+    = select_tag(:game, options_from_collection_for_select(Game.order(:name).all, :id, :to_label), { class: 'form-control' })
+    = f.button fa_icon('gamepad', text: 'Play!'), type: 'submit', class: 'btn btn-success', data: { disable_with: fa_icon('spinner pulse fw', text: 'Searching...') }
+    = f.button fa_icon('close', text: 'Reset'), type: 'reset', class: 'btn btn-danger'
+
+%table.table
+  %thead
+    %tr
+      %th Username
+      %th Description
+      %th Friendly ID
+      %th First name
+      %th Last name
+      %th Date of Birth
+      %th Verified
+  %tbody#gamers
+  %tfoot#pagination
+
+-#I want to play
+-#= select_tag(:game, options_from_collection_for_select(Game.all, :id, :to_label))
+-#on
+-#= date_select(:play, :date)
+-#with
+-#= select_tag(:number, options_for_select(1..10))
+-#= select_tag(:gamer_dedication, options_from_collection_for_select(Gamer.dedications, :last, :first))
+-#gamer(s)
+-#= button_tag fa_icon('search', text: 'Search')
