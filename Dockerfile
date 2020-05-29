@@ -1,4 +1,4 @@
-FROM ruby:2.5-alpine
+FROM ruby:2.7-alpine
 
 RUN apk update && apk add build-base git nodejs tzdata libxml2-dev libxslt-dev postgresql-dev
 

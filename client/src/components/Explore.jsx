@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Gamer from './Gamer';
+import GamersList from './GamersList';
 
 var api = require('../utilities/api');
 
@@ -17,11 +17,6 @@ class Explore extends Component {
   }
 
   getGamers() {
-    // this.setState(function () {
-    //   return {
-    //     gamers: null
-    //   }
-    // });
     api.fetchGamers().then(function (gamers) {
         this.setState(function () {
           return {
@@ -34,10 +29,10 @@ class Explore extends Component {
   render() {
     return(
       <div>
-        <h1>Explore</h1>
+        <h1>Explore (v2)</h1>
         {!this.state.gamers ?
           <p>Loading gamers...</p>
-          : <Gamer gamer={this.state.gamers[0]} />}
+          : <GamersList gamers={this.state.gamers} />}
       </div>
     )
   }

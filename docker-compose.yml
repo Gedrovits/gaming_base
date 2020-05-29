@@ -6,15 +6,28 @@ networks:
 
 services:
   web:
+    build: client
+    command: npm start
+    volumes:
+      - .:/web
+    networks:
+      - public
+      - private
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  api:
     build: .
-    command: bundle exec rails s -b 0.0.0.0 -p 3000
+    command: bundle exec rails s -b 0.0.0.0 -p 3001
     volumes:
       - .:/app
     networks:
       - public
       - private
     ports:
-      - "3000:3000"
+      - "3001:3001"
     depends_on:
       - postgres
       - redis
@@ -37,7 +50,7 @@ services:
       REDIS_URL: redis://redis
 
   postgres:
-    image: 'postgres:9.6-alpine'
+    image: 'postgres'
     environment:
       POSTGRES_USER: 'gaming_base'
       POSTGRES_PASSWORD: 'gaming_base'
@@ -50,7 +63,7 @@ services:
       - 'postgres:/var/lib/postgresql/data'
 
   redis:
-    image: 'redis:3.2-alpine'
+    image: 'redis'
     sysctls:
       - "net.core.somaxconn=1024"
     command: redis-server --appendonly yes
