@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # [:facebook, :twitter, :google_oauth2, :github, :twitch, :steam]
   
-  skip_before_filter :verify_authenticity_token, only: :steam # FIXME: Steam sending request, which don't have auth token...
+  skip_before_action :verify_authenticity_token, only: :steam # FIXME: Steam sending request, which don't have auth token...
   
   def facebook
   end
